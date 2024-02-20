@@ -1,5 +1,6 @@
 import GoogleGeminiEffect from "@/components/ui/google-gemini-effect";
 import Typing from "@/components/ui/Typing";
+import {TracingBeam} from "@/components/ui/TracingBeams";
 
 export default function Home() {
   return (
@@ -12,7 +13,15 @@ export default function Home() {
                 description={<Typing />}
             />
         </div>
-        hi
+        <TracingBeam className={"mt-[50vh]"}>
+            <div className={"h-[100vh]"}>
+                <h1>Projects</h1>
+                <p>Some of the projects I have worked on</p>
+            </div>
+        </TracingBeam>
+        <div className={"h-screen"}>
+
+        </div>
     </main>
   );
 }

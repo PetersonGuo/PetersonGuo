@@ -1,6 +1,6 @@
 "use client";
 import '@/css/Nav.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
     motion,
     AnimatePresence,
@@ -14,10 +14,21 @@ export default function Nav() {
     const {scrollYProgress} = useScroll();
 
     const [visible, setVisible] = useState(true);
+    const [hasScrolled, setHasScrolled] = useState(false); // New state to track if the user has scrolled
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 25) {
+                setHasScrolled(true);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useMotionValueEvent(scrollYProgress, "change", (current) => {
         // Check if current is not undefined and is a number
-        if (typeof current === "number") {
+        if (typeof current === "number" && hasScrolled) {
             let direction = current - scrollYProgress.getPrevious();
 
             if (scrollYProgress.get() < 0.05) {
@@ -25,7 +36,7 @@ export default function Nav() {
             } else {
                 if (direction < 0) {
                     setVisible(true);
-                } else {
+                } else if (direction > 0) {
                     setVisible(false);
                 }
             }
@@ -37,7 +48,7 @@ export default function Nav() {
             <motion.nav
                 initial={{
                     opacity: 1,
-                    y: -100,
+                    y: 0,
                 }}
                 animate={{
                     y: visible ? 0 : -100,
@@ -58,7 +69,7 @@ export default function Nav() {
                         <Link href="/projects" className="link">Projects</Link>
                     </li>
                     <li>
-                        <Link href="#" className="link">Contact</Link>
+                        <Link href="/contact" className="link">Contact</Link>
                     </li>
                 </ul>
                 <ul className="flex items-center justify-self-end space-x-4">
