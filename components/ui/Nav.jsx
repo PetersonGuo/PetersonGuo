@@ -12,13 +12,12 @@ import Link from "next/link";
 
 export default function Nav() {
     const {scrollYProgress} = useScroll();
-
     const [visible, setVisible] = useState(true);
-    const [hasScrolled, setHasScrolled] = useState(false); // New state to track if the user has scrolled
+    const [hasScrolled, setHasScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 25) {
+            if (window.scrollY > 50) {
                 setHasScrolled(true);
             }
         };
@@ -28,7 +27,7 @@ export default function Nav() {
 
     useMotionValueEvent(scrollYProgress, "change", (current) => {
         // Check if current is not undefined and is a number
-        if (typeof current === "number" && hasScrolled) {
+        if (typeof current === "number") {
             let direction = current - scrollYProgress.getPrevious();
 
             if (scrollYProgress.get() < 0.05) {
@@ -36,7 +35,7 @@ export default function Nav() {
             } else {
                 if (direction < 0) {
                     setVisible(true);
-                } else if (direction > 0) {
+                } else if (direction > 0 && hasScrolled) {
                     setVisible(false);
                 }
             }
@@ -58,12 +57,12 @@ export default function Nav() {
                     duration: 0.2,
                 }}
                 className={cn(
-                    "z-20 fixed grid grid-cols-3 items-center w-full h-20 px-8")}
+                    "z-20 fixed grid grid-cols-3 items-center w-full h-20 px-8 top-3")}
             >
                 <Link href="/" className="logo justify-self-start">Peterson Guo</Link>
                 <ul className="flex items-center justify-self-center space-x-4">
                     <li>
-                        <Link href="#" className="link">About</Link>
+                        <Link href="/about" className="link">About</Link>
                     </li>
                     <li>
                         <Link href="/projects" className="link">Projects</Link>
