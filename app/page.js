@@ -1,6 +1,6 @@
 import GoogleGeminiEffect from "@/components/ui/google-gemini-effect";
 import Typing from "@/components/ui/Typing";
-import {TracingBeam} from "@/components/ui/TracingBeams";
+import { TracingBeam } from "@/components/ui/TracingBeams";
 import Nav from "@/components/ui/Nav";
 import WorkCard from "../components/ui/WorkCard";
 
@@ -8,15 +8,15 @@ export default function Home() {
     return (
         <>
             <div className={"h-24"}>
-                <Nav/>
+                <Nav />
             </div>
             <main className="flex min-h-screen flex-col items-center justify-between">
                 <div
-                    className="h-[300vh] bg-black w-full relative overflow-clip"
+                    className="h-[400vh] bg-black w-full relative overflow-clip"
                 >
                     <GoogleGeminiEffect
-                        title={"I am Peterson Guo"}
-                        description={<Typing/>}
+                        title={"Peterson Guo"}
+                        description={<Typing />}
                     />
                 </div>
                 <TracingBeam className={"mt-[50vh] h-[100vh]"}>
