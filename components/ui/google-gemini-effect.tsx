@@ -2,6 +2,9 @@
 import { cn } from "@/utils/cn";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import React from "react";
+import Social from "@/components/Social";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const transition = {
 	duration: 0,
@@ -41,6 +44,14 @@ export default function GoogleGeminiEffect({
 				<p className="text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
 					{description}
 				</p>
+				<div className="w-full h-[890px] -top-64 md:-top-64 flex items-center justify-center bg-red-transparent absolute space-x-2">
+					<Social social="github">
+						<FaGithub size={30} />
+					</Social>
+					<Social social="linkedin">
+						<FaLinkedin size={30} />
+					</Social>
+				</div>
 				<svg
 					width="1920"
 					height="1080"

@@ -27,10 +27,10 @@ ul {
     transform: scaleX(1);
 }
 
-.logo {
+.name {
     transition: 0.35s ease;
 }
 
-.logo:hover {
+.name:hover {
     opacity: 0.5;
 }
