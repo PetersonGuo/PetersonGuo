@@ -57,7 +57,7 @@ export default function Nav() {
 					duration: 0.2,
 				}}
 				className={cn(
-					"z-20 fixed grid grid-cols-3 items-center w-full h-20 px-8 top-3"
+					"z-20 fixed grid grid-cols-3 items-center w-full h-20 px-8 py-3 bg-black !opacity-95"
 				)}
 			>
 				<Link href="/" className="name justify-self-start">
