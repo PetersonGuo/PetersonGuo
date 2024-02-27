@@ -75,7 +75,7 @@ export default function Nav() {
 						</Link>
 					</li>
 					<li>
-						<Link href="/contact" className="link">
+						<Link href="/#contact" className="link">
 							Contact
 						</Link>
 					</li>
