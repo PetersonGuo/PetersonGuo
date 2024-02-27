@@ -26,13 +26,13 @@ export default function WorkCard({
 					: "bg-gray-100 text-gray-700"
 			}`}
 		>
-			<div className="flex flex-col h-full px-4 py-3">
+			<div className="flex flex-col h-full px-10 py-6">
 				<div className="flex flex-row justify-between">
-					<h3 className="text-xl font-semibold">{title}</h3>
-					<h4 className="text-sm font-medium">{company}</h4>
+					<h3 className="text-2xl font-semibold">{title}</h3>
+					<h4 className="text-md font-medium">{company}</h4>
 				</div>
 				<h4 className="text-base font-medium">{time}</h4>
-				<ul className="text-sm">
+				<ul className="text-sm list-disc px-4">
 					{description.map((item, i) => {
 						return (
 							<li key={`work_description_${i}`} className="py-2">

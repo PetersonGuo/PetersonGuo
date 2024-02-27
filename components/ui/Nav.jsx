@@ -65,7 +65,7 @@ export default function Nav() {
 				</Link>
 				<ul className="flex items-center justify-self-center space-x-4">
 					<li>
-						<Link href="/about" className="link">
+						<Link href="/#about" className="link">
 							About
 						</Link>
 					</li>

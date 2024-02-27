@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	scroll-behavior: smooth;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -85,6 +89,10 @@ h2 {
 h3 {
 	font-size: 1.5rem; /* 24px */
 	font-weight: bold;
+}
+
+h4 {
+	font-size: 1.3rem;
 }
 
 p {

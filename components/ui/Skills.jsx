@@ -180,26 +180,37 @@ export default function Skills() {
 				))}
 			</div>
 			<div className="flex flex-wrap p-4 justify-center">
-				{skillsByCategory[activeCategory].map((skill, i) => (
-					<div key={i} className="p-2">
-						<a
-							href={skill.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="block hover:scale-110 transition-transform duration-200 ease-in-out"
-						>
-							<div className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-lg shadow hover:shadow-lg overflow-hidden">
-								<Image
-									src={`/logos/skills/${skill.src}`}
-									alt={`${skill.alt} logo`}
-									width={80}
-									height={80}
-									style={{objectFit: "contain"}}
-									priority={loadPriority[i]}
-									className="transition-opacity duration-200 ease-in-out"
-								/>
+				{Object.keys(skillsByCategory).map((category) => (
+					<div
+						key={category}
+						className={`logo-container flex ${
+							activeCategory === category ? "" : "hidden"
+						}`}
+					>
+						{skillsByCategory[category].map((skill, i) => (
+							<div key={i} className="p-2">
+								<a
+									href={skill.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="block hover:scale-110 transition-transform duration-200 ease-in-out"
+								>
+									<div className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-lg shadow hover:shadow-lg overflow-hidden">
+										<Image
+											src={`/logos/skills/${skill.src}`}
+											alt={`${skill.alt} logo`}
+											width={80}
+											height={80}
+											style={{objectFit: "contain"}}
+											priority={loadPriority[i]}
+											placeholder="blur"
+											blurDataURL={`/logos/skills/${skill.src}`}
+											className="transition-opacity duration-200 ease-in-out"
+										/>
+									</div>
+								</a>
 							</div>
-						</a>
+						))}
 					</div>
 				))}
 			</div>
