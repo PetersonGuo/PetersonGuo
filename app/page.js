@@ -1,4 +1,4 @@
-import GoogleGeminiEffect from "@/components/ui/google-gemini-effect";
+import Hero from "@/components/ui/hero";
 import Typing from "@/components/ui/Typing";
 import { TracingBeam } from "@/components/ui/TracingBeams";
 import Nav from "@/components/ui/Nav";
@@ -53,7 +53,7 @@ export default function Home() {
                 <section
                     className="h-[400vh] bg-black w-full relative overflow-clip"
                 >
-                    <GoogleGeminiEffect
+                    <Hero
                         title={"Peterson Guo"}
                         description={<Typing />}
                     />

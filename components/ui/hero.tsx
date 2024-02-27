@@ -11,7 +11,7 @@ const transition = {
 	ease: "linear",
 };
 
-export default function GoogleGeminiEffect({
+export default function Hero({
 	title,
 	description,
 	className,
