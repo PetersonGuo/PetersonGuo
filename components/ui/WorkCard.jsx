@@ -20,7 +20,7 @@ export default function WorkCard({
 			initial="initial"
 			animate="animate"
 			exit="exit"
-			className={`h-[20vh] rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 even:justify-self-end w-[60%] justify-self-start even:ml-auto even:mr-0 even:text-right my-5 ${
+			className={`rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 even:justify-self-end w-[60%] justify-self-start even:ml-auto even:mr-0 my-5 ${
 				company === "Current"
 					? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
 					: "bg-gray-100 text-gray-700"
@@ -32,7 +32,15 @@ export default function WorkCard({
 					<h4 className="text-sm font-medium">{company}</h4>
 				</div>
 				<h4 className="text-base font-medium">{time}</h4>
-				<p className="text-sm">{description}</p>
+				<ul className="text-sm">
+					{description.map((item, i) => {
+						return (
+							<li key={`work_description_${i}`} className="py-2">
+								<p>{item}</p>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
 		</motion.div>
 	);

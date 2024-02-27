@@ -1,0 +1,16 @@
+.tabs {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.tab {
+	padding: 10px;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+.tab.active {
+	border-bottom: 2px solid #076eff; /* Highlight the active tab */
+	color: #8abbff;
+}
