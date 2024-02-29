@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Hi, I'm Peterson Guo👋</h1>
+<h3 align="center">A passionate Software developer from Canada</h3>
 
-## Getting Started
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://twitter.com/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="petersonguo" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="petersonguo" height="30" width="40" /></a>
+<a href="https://fb.com/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="petersonguo" height="30" width="40" /></a>
+<a href="https://instagram.com/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="petersonguo" height="30" width="40" /></a>
+<a href="https://www.youtube.com/c/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="petersonguo" height="30" width="40" /></a>
+<a href="https://www.leetcode.com/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="petersonguo" height="30" width="40" /></a>
+</p>
 
-First, run the development server:
+<h2>My Skills</h2>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[![My Skills](https://skillicons.dev/icons?i=anaconda,androidstudio,arduino,autocad,aws,azure,bash,bootstrap,bun,c,cs,cpp,clion,cloudflare,cmake,css,debian,discord,django,docker,dynamodb,express,fastapi,firebase,flask,flutter,gcp,git,github,gtk,html,idea,java,js,jquery,latex,linux,md,materialui,matlab,mongodb,mysql,netlify,nextjs,nodejs,npm,opencv,pinia,postgres,postman,powershell,pycharm,py,raspberrypi,react,regex,sqlite,supabase,selenium,tailwind,tensorflow,terraform,ts,ubuntu,vercel,vim,vite,vscode,vue,webstorm,windows,wasm)](https://skillicons.dev)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![PetersonGuo's GitHub stats](https://github-readme-stats.vercel.app/api?username=petersonguo&show_icons=true&theme=dark)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
+  <img alt="github-snake" src="github-snake.svg" />
+</picture>
