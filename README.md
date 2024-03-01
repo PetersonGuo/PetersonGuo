@@ -13,7 +13,7 @@
 
 <h2>My Skills</h2>
 
-[![My Skills](https://skillicons.dev/icons?i=anaconda,androidstudio,arduino,autocad,aws,azure,bash,bootstrap,bun,c,cs,cpp,clion,cloudflare,cmake,css,debian,discord,django,docker,dynamodb,express,fastapi,firebase,flask,flutter,gcp,git,github,gtk,html,idea,java,js,jquery,latex,linux,md,materialui,matlab,mongodb,mysql,netlify,nextjs,nodejs,npm,opencv,pinia,postgres,postman,powershell,pycharm,py,raspberrypi,react,regex,sqlite,supabase,selenium,tailwind,tensorflow,terraform,ts,ubuntu,vercel,vim,vite,vscode,vue,webstorm,windows,wasm)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=cpp,c,py,java,cs,latex,bash,html,css,js,ts,jquery,tailwind,bootstrap,materialui,flutter,nextjs,react,nodejs,express,npm,vue,vite,pinia,aws,terraform,django,fastapi,flask,anaconda,android,arduino,autocad,azure,cloudflare,cmake,debian,docker,dynamodb,firebase,gcp,git,github,gtk,linux,matlab,mongodb,mysql,opencv,postgres,powershell,raspberrypi,regex,sqlite,supabase,selenium,tensorflow,windows,wasm)]
 
 ![PetersonGuo's GitHub stats](https://github-readme-stats.vercel.app/api?username=petersonguo&show_icons=true&theme=dark)
 
