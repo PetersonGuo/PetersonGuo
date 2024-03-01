@@ -13,7 +13,7 @@
 
 <h2>My Skills</h2>
 
-![My Skills](https://skillicons.dev/icons?i=cpp,c,py,java,cs,latex,bash,html,css,js,ts,jquery,tailwind,bootstrap,materialui,flutter,nextjs,react,nodejs,express,npm,vue,vite,pinia,aws,terraform,django,fastapi,flask,anaconda,arduino,autocad,azure,cloudflare,cmake,debian,docker,dynamodb,firebase,gcp,git,github,gtk,linux,matlab,mongodb,mysql,opencv,postgres,powershell,raspberrypi,regex,sqlite,supabase,selenium,tensorflow,windows,wasm)
+![My Skills](https://skillicons.dev/icons?i=cpp,c,py,java,cs,latex,bash,html,css,js,ts,wasm,regex,jquery,tailwind,bootstrap,materialui,flutter,nextjs,react,nodejs,express,npm,vue,vite,pinia,docker,gcp,aws,terraform,django,fastapi,flask,anaconda,cloudflare,debian,windows,linux,kali,ubuntu,arduino,raspberrypi,git,gtk,selenium,matlab,opencv,tensorflow,dynamodb,mongodb,mysql,postgres,sqlite,supabase,firebase)
 
 ![PetersonGuo's GitHub stats](https://github-readme-stats.vercel.app/api?username=petersonguo&show_icons=true&theme=dark)
 
