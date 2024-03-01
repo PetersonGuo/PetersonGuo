@@ -23,7 +23,7 @@ export default function WorkCard({
 			className={`rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 even:justify-self-end w-[60%] justify-self-start even:ml-auto even:mr-0 my-5 ${
 				company === "Current"
 					? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
-					: "bg-gray-100 text-gray-700"
+					: "bg-[var(--secondary-bg)] text-white"
 			}`}
 		>
 			<div className="flex flex-col h-full px-10 py-6">

@@ -141,6 +141,18 @@ export default function Skills() {
 		"Programming Languages"
 	);
 
+	const [activeTab, setActiveTab] = useState(null);
+
+	useEffect(() => {
+		setActiveTab(document.querySelector(".tab.active"));
+	}, []);
+
+	const setActive = (e) => {
+		console.log(e);
+		setActiveCategory(e.target.innerText);
+		setActiveTab(e.target);
+	};
+
 	const [loadPriority, setLoadPriority] = useState(
 		new Array(skillsByCategory[activeCategory].length)
 			.fill(false)
@@ -173,11 +185,20 @@ export default function Skills() {
 						className={`tab ${
 							activeCategory === category ? "active" : ""
 						}`}
-						onClick={() => setActiveCategory(category)}
+						onClick={setActive}
 					>
 						{category}
 					</button>
 				))}
+				{activeTab && (
+					<div
+						class="selector"
+						style={{
+							left: activeTab.offsetLeft,
+							width: activeTab.offsetWidth,
+						}}
+					/>
+				)}
 			</div>
 			<div className="flex flex-wrap p-4 justify-center">
 				{Object.keys(skillsByCategory).map((category) => (
@@ -189,7 +210,7 @@ export default function Skills() {
 					>
 						{skillsByCategory[category].map((skill, i) => (
 							<div key={i} className="p-2">
-								<a
+								<Link
 									href={skill.href}
 									target="_blank"
 									rel="noopener noreferrer"
@@ -201,14 +222,14 @@ export default function Skills() {
 											alt={`${skill.alt} logo`}
 											width={80}
 											height={80}
-											style={{objectFit: "contain"}}
+											style={{ objectFit: "contain" }}
 											priority={loadPriority[i]}
 											placeholder="blur"
 											blurDataURL={`/logos/skills/${skill.src}`}
 											className="transition-opacity duration-200 ease-in-out"
 										/>
 									</div>
-								</a>
+								</Link>
 							</div>
 						))}
 					</div>

@@ -36,9 +36,10 @@ export const TracingBeam = ({
 		}
 	}, []);
 	useEffect(() => {
-		return scrollYProgressVelocity.onChange((latestVelocity) => {
+		const unsubscribe = scrollYProgressVelocity.on("change", (latestVelocity) => {
 			setVelocity(latestVelocity);
 		});
+		return () => unsubscribe();
 	}, []);
 
 	const y1 = useSpring(

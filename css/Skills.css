@@ -1,6 +1,7 @@
 .tabs {
 	display: flex;
 	margin-bottom: 20px;
+	position: relative;
 }
 
 .tab {
@@ -11,6 +12,13 @@
 }
 
 .tab.active {
-	border-bottom: 2px solid #076eff; /* Highlight the active tab */
 	color: #8abbff;
+}
+
+.tabs .selector {
+	position: absolute;
+	border-bottom: 2px solid #076eff;
+	height: 100%;
+	left: 0;
+	transition: 0.3s all ease-in-out;
 }

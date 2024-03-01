@@ -52,7 +52,7 @@ export default function Home() {
             </div>
             <main className="flex min-h-screen flex-col items-center justify-between home">
                 <section
-                    className="h-[400vh] bg-black w-full relative overflow-clip"
+                    className="h-[400vh] bg-[var(--background-start-rgb)] w-full relative overflow-clip"
                 >
                     <Hero
                         title={"Peterson Guo"}
@@ -72,7 +72,7 @@ export default function Home() {
                     </p>
                     <Link href="#contact" className="border-white border rounded-2xl px-5 py-2">Contact Me</Link>
                 </section>
-                <section className="bg-[#0f0f0f] flex justify-center rounded-2xl px-32 py-14">
+                <section className="bg-[var(--secondary-bg)] flex justify-center rounded-2xl px-32 py-14">
                     <Skills />
                 </section>
                 <section className="w-full">
