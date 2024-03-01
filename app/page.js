@@ -16,7 +16,7 @@ const WorkData = [
         time: "January 2024 - Present",
         description: [
             "Accomplished significant improvements in data management through the development of a recursive function for JSON-to-database conversion.This enhanced the processing capabilities for complex data types.",
-            "Automated FastAPI deployment to AWS through the creation of a Terraform template, using endpoint logging and SQS queue data processing.This standardized deployment across 8 projects, facilitating a smoother and more efficient development workflow.",
+            "Automated FastAPI deployment to AWS through the creation of a Terraform template, using endpoint logging and SQS queue data processing.This standardized deployment across numerous projects, facilitating a smoother and more efficient development workflow.",
             "Achieved a 400% increase in processing speed for the Incident Report function through the implementation of Python list comprehension, using optimized algorithms to enhance efficiency in data retrieval and storage.",
             "Led the design and implementation of a Vue3 component for a threat dashboard through the integration of MDR insights and automated PDF report generation, using Vue.js and PDF generation technologies.This improved client engagement and intelligence delivery significantly.",
             "Contributed to the development of proprietary software for emerging threat detection, underlining my expertise in handling projects with high confidentiality and complexity."]
