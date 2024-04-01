@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+// ssr this
+
 import "@/css/Skills.css";
 
 const skillsByCategory = {
@@ -192,7 +194,7 @@ export default function Skills() {
 				))}
 				{activeTab && (
 					<div
-						class="selector"
+						className="selector"
 						style={{
 							left: activeTab.offsetLeft,
 							width: activeTab.offsetWidth,

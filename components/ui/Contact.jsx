@@ -3,6 +3,10 @@ import { useForm } from "react-hook-form";
 import sendEmail from "@/utils/sendEmail";
 import Social from "../Social";
 
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+
+import "@/css/Contact.css";
+
 export default function Contact() {
 	const { register, handleSubmit } = useForm();
 
@@ -11,11 +15,20 @@ export default function Contact() {
 	}
 
 	return (
-		<div className="py-8 lg:py-16 px-20 w-full bg-[#0f0f0f] rounded-2xl" id="contact">
+		<div
+			className="py-8 lg:py-16 px-20 w-full bg-[var(--secondary-bg)] rounded-2xl"
+			id="contact"
+		>
 			<div className={"grid grid-cols-3 place-items-center mb-6"}>
-				<Social social="linkedin" size={30} />
-				<Social social="instagram" size={30} />
-				<Social social="facebook" size={30} />
+				<Social social="linkedin">
+					<FaLinkedin size={30} />
+				</Social>
+				<Social social="instagram">
+					<FaInstagram size={30} />
+				</Social>
+				<Social social="facebook">
+					<FaFacebook size={30} />
+				</Social>
 			</div>
 			<div className={"border-b-2 border-gray-300 mb-6"}></div>
 			<h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
@@ -48,11 +61,24 @@ export default function Contact() {
 						placeholder="Leave a message..."
 					></textarea>
 				</div>
-				<button
-					type="submit"
-					className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-600"
-				>
-					Send message
+				<button id="send__button">
+					<div className="svg-wrapper-1">
+						<div className="svg-wrapper">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								width="24"
+								height="24"
+							>
+								<path fill="none" d="M0 0h24v24H0z"></path>
+								<path
+									fill="currentColor"
+									d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+								></path>
+							</svg>
+						</div>
+					</div>
+					<span>Send</span>
 				</button>
 			</form>
 		</div>

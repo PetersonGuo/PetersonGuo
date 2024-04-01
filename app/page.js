@@ -22,15 +22,6 @@ const WorkData = [
             "Contributed to the development of proprietary software for emerging threat detection, underlining my expertise in handling projects with high confidentiality and complexity."]
     },
     {
-        title: "Full Stack Developer",
-        company: "Broadcast Fantasia",
-        time: "05/2023 – 09/2023",
-        description: [
-            "Enhanced e-commerce functionality and user experience through the development of custom Shopify apps, using Shopify’s API and web development best practices. This led to a 4% increase in customer engagement metrics.",
-            "Ensured optimal functionality, robust security, and high performance of Shopify apps through comprehensive testing and debugging, using automated testing tools. This resulted in a 99.5% uptime and a 5% reduction in customer - reported issues.",
-            "Expanded app features and capabilities through integrations with over 5 third-party APIs, using RESTful API standards. This contributed to a 15% increase in app functionality and user satisfaction."]
-    },
-    {
         title: "Simulation Developer",
         company: "COBWEB",
         time: "06/2023 – 09/2023",
@@ -76,7 +67,7 @@ export default function Home() {
                     <Skills />
                 </section>
                 <section className="w-full">
-                    <TracingBeam className={"h-[100vh]"}>
+                    <TracingBeam>
                         <div>
                             <h1>Work History</h1>
                         </div>
@@ -89,10 +80,13 @@ export default function Home() {
                         </div>
                     </TracingBeam>
                 </section>
-                <section className={"h-screen"}>
+                <section className={""}>
                     <h1>
                         Projects
                     </h1>
+                    <p className="text-center">
+                        Coming Soon
+                    </p>
                 </section>
                 <section className="w-full !py-0 !px-[20vw]">
                     <Contact />

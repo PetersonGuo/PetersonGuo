@@ -1,6 +1,8 @@
 import Image from "next/image";
-import "@/css/Social.css";
+import Link from 'next/link';
 import { ReactElement } from "react";
+
+import "@/css/Social.css";
 
 // Define a type for the socials object entries
 interface SocialInfo {
@@ -43,7 +45,7 @@ const socials: Record<string, SocialInfo> = {
 
 export default function Social({ social, className='', children, size } : SocialProps) {
 	return (
-		<a
+		<Link
 			href={socials[social].link}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -59,6 +61,6 @@ export default function Social({ social, className='', children, size } : Social
 					alt={socials[social].alt}
 				/>
 			)}
-		</a>
+		</Link>
 	);
 }

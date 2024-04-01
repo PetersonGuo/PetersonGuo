@@ -36,9 +36,12 @@ export const TracingBeam = ({
 		}
 	}, []);
 	useEffect(() => {
-		const unsubscribe = scrollYProgressVelocity.on("change", (latestVelocity) => {
-			setVelocity(latestVelocity);
-		});
+		const unsubscribe = scrollYProgressVelocity.on(
+			"change",
+			(latestVelocity) => {
+				setVelocity(latestVelocity);
+			}
+		);
 		return () => unsubscribe();
 	}, []);
 
@@ -60,11 +63,8 @@ export const TracingBeam = ({
 	return (
 		<motion.div
 			ref={ref}
-			className={cn(
-				`relative w-full max-w-4xl mx-auto`,
-				className
-			)}
-			style={{height: `${svgHeight}px`}}
+			className={cn(`relative w-full max-w-4xl mx-auto`, className)}
+			style={{ height: `${svgHeight}px` }}
 		>
 			<div className="absolute -left-20 top-3">
 				<motion.div
@@ -72,7 +72,7 @@ export const TracingBeam = ({
 						duration: 0.2,
 						delay: 0.5,
 					}}
-					animate={{
+					style={{
 						boxShadow:
 							scrollYProgress.get() > 0
 								? "none"
@@ -85,7 +85,7 @@ export const TracingBeam = ({
 							duration: 0.2,
 							delay: 0.5,
 						}}
-						animate={{
+						style={{
 							backgroundColor:
 								scrollYProgress.get() > 0
 									? "white"
