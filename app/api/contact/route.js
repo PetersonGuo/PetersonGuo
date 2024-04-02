@@ -1,14 +1,18 @@
 "use server"
-import postmark from 'postmark';
 import { NextResponse } from 'next/server';
 
+const postmark = require('postmark');
+
 export async function POST(req) {
+    const data = await req.json();
+    console.log(data);
     const client = new postmark.ServerClient(process.env.MAIL_API);
     client.sendEmail({
-        "From": req.body.email,
+        "From": data.email,
         "To": process.env.MAIL_TO,
-        "Subject": req.body.subject,
-        "TextBody": req.body.message
+        "Subject": data.subject,
+        "TextBody": data.message,
+        "MessageStream": "outbound"
     });
-    return NextResponse.redirect("/");
+    return NextResponse.json({ success: true });
 }
