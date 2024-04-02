@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function WorkCard({
 	children,
@@ -7,6 +8,7 @@ export default function WorkCard({
 	description,
 	time,
 	company,
+	image,
 }) {
 	const cardVariants = {
 		initial: { opacity: 0 },
@@ -31,7 +33,16 @@ export default function WorkCard({
 					<h3 className="text-2xl font-semibold">{title}</h3>
 					<h4 className="text-md font-medium">{company}</h4>
 				</div>
-				<h4 className="text-base font-medium">{time}</h4>
+				<span className="flex row justify-between">
+					<h4 className="text-base font-medium">{time}</h4>
+					<Image
+						className=""
+						src={image}
+						alt={company}
+						width={30}
+						height={20}
+					/>
+				</span>
 				<ul className="text-sm list-disc px-4">
 					{description.map((item, i) => {
 						return (

@@ -13,6 +13,7 @@ const WorkData = [
     {
         title: "Security Developer",
         company: "eSentire",
+        image: "/esentire.png",
         time: "January 2024 - Present",
         description: [
             "Accomplished significant improvements in data management through the development of a recursive function for JSON-to-database conversion.This enhanced the processing capabilities for complex data types.",
@@ -24,12 +25,14 @@ const WorkData = [
     {
         title: "Simulation Developer",
         company: "COBWEB",
+        image: "/cobweb.png",
         time: "06/2023 – 09/2023",
         description: ["Developed and enhanced simulation models for health-related research through software engineering applications in scientific contexts, using C++ and Java.This optimized code resulted in a 15% reduction in memory usage and a 10% increase in speed."]
     },
     {
         title: "Robotics Developer",
         company: "Trubotics",
+        image: "/trubotics.png",
         time: "05/2022 – 06/2023",
         description: ["Designed mechanical components for optimization through the application of Fusion360, using principles of mechanical design and software engineering.This demonstrated a blend of skills for optimal performance.", "Engineered competitive autonomous strategies through the development of C++ algorithms, using sensor technologies. This catapulted the competition ranking from 135th to 31st, showcasing expertise in sensor integration and algorithm development."]
     }
@@ -61,7 +64,7 @@ export default function Home() {
                     <p>
                         {"If my journey resonates with you, whether you're curious about my passions or considering a collaborative project (like building a website), I'd love to connect. Reach out to learn more about my experiences or discuss potential opportunities together."}
                     </p>
-                    <Link href="#contact" className="border-white border rounded-2xl px-5 py-2">Contact Me</Link>
+                    <Link href="#contact" className="border-white border overflow-hidden rounded-2xl px-5 py-2 relative ease-in-out slide-fill hover:text-black">Contact Me</Link>
                 </section>
                 <section className="bg-[var(--secondary-bg)] flex justify-center rounded-2xl px-32 py-14">
                     <Skills />
@@ -74,7 +77,7 @@ export default function Home() {
                         <div className={"grid"}>
                             {
                                 WorkData.map((data, i) => {
-                                    return <WorkCard title={data.title} company={data.company} time={data.time} description={data.description} key={`WorkCard${i}`} />;
+                                    return <WorkCard title={data.title} image={data.image} company={data.company} time={data.time} description={data.description} key={`WorkCard${i}`} />;
                                 })
                             }
                         </div>
