@@ -10,7 +10,7 @@ export async function POST(req) {
     client.sendEmail({
         "From": process.env.MAIL_TO,
         "To": process.env.MAIL_TO,
-        "Subject": data.subject,
+        "Subject": `${data.subject} - ${data.email}`,
         "TextBody": data.message,
         "MessageStream": "outbound"
     });
