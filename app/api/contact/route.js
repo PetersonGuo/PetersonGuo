@@ -8,7 +8,7 @@ export async function POST(req) {
     console.log(data);
     const client = new postmark.ServerClient(process.env.MAIL_API);
     client.sendEmail({
-        "From": data.email,
+        "From": process.env.MAIL_TO,
         "To": process.env.MAIL_TO,
         "Subject": data.subject,
         "TextBody": data.message,
