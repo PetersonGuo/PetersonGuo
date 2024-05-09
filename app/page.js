@@ -16,25 +16,30 @@ const WorkData = [
         image: "/esentire.png",
         time: "January 2024 - Present",
         description: [
-            "Accomplished significant improvements in data management through the development of a recursive function for JSON-to-database conversion.This enhanced the processing capabilities for complex data types.",
-            "Automated FastAPI deployment to AWS through the creation of a Terraform template, using endpoint logging and SQS queue data processing.This standardized deployment across numerous projects, facilitating a smoother and more efficient development workflow.",
-            "Achieved a 400% increase in processing speed for the Incident Report function through the implementation of Python list comprehension, using optimized algorithms to enhance efficiency in data retrieval and storage.",
-            "Led the design and implementation of a Vue3 component for a threat dashboard through the integration of MDR insights and automated PDF report generation, using Vue.js and PDF generation technologies.This improved client engagement and intelligence delivery significantly.",
-            "Contributed to the development of proprietary software for emerging threat detection, underlining my expertise in handling projects with high confidentiality and complexity."]
+            "Directed the development of a key threat analytics dashboard, which has become a cornerstone project, significantly boosting client engagement through enhanced data visualization and automated reporting. The dashboard’s success has catalyzed a strategic shift towards advanced analytics solutions, making it a major topic of discussion among company executives and a pivotal part of our operational transformation.",
+            "Enhanced data management efficiencies by developing a JSON-to-database conversion function, significantly improving the handling and processing of complex data structures.",
+            "Led the automation of deployment processes across four major projects, enhancing efficiency by 10% through the strategic use of Terraform templates.",
+            "Dramatically increased the efficiency of incident reporting functions by over 400%, enhancing data processing and storage capabilities through optimized algorithms.",
+            "Enhanced the logging and security protocols for multiple projects, standardizing methods to ensure robust access control and system monitoring.",
+            "Developed and contributed to an open-source PCAP scrubber project, enhancing tool capabilities by implementing features that remove sensitive information, thus facilitating safe and effective training for network analysts."
+        ]
     },
     {
         title: "Simulation Developer",
         company: "COBWEB",
         image: "/cobweb.png",
         time: "06/2023 – 09/2023",
-        description: ["Developed and enhanced simulation models for health-related research through software engineering applications in scientific contexts, using C++ and Java.This optimized code resulted in a 15% reduction in memory usage and a 10% increase in speed."]
+        description: [
+            "Developed and maintained simulation models such as particle physics, computer vision, and spring-mass systems.",
+            "Developed and optimized health-related research simulation models using C++ and Java, achieving a 15% reduction in memory usage and a 10 % increase in processing speed."
+        ]
     },
     {
         title: "Robotics Developer",
         company: "Trubotics",
         image: "/trubotics.png",
         time: "05/2022 – 06/2023",
-        description: ["Designed mechanical components for optimization through the application of Fusion360, using principles of mechanical design and software engineering.This demonstrated a blend of skills for optimal performance.", "Engineered competitive autonomous strategies through the development of C++ algorithms, using sensor technologies. This catapulted the competition ranking from 135th to 31st, showcasing expertise in sensor integration and algorithm development."]
+        description: ["Designed mechanical components using Fusion360, incorporating principles of mechanical design and software engineering. This demonstrated a blend of skills for optimal performance.", "Engineered competitive autonomous strategies through the development of C++ algorithms, using sensor technologies. This catapulted the competition ranking from 135th to 31st, showcasing expertise in sensor integration and algorithm development."]
     }
 ];
 

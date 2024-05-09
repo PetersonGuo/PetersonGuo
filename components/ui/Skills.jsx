@@ -218,7 +218,7 @@ export default function Skills() {
 									rel="noopener noreferrer"
 									className="block hover:scale-110 transition-transform duration-200 ease-in-out"
 								>
-									<div className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-lg shadow hover:shadow-lg overflow-hidden">
+									<div className="flex items-center justify-center w-10 h-10 md:w-24 md:h-24 bg-gray-100 rounded-lg shadow hover:shadow-lg overflow-hidden">
 										<Image
 											src={`/logos/skills/${skill.src}`}
 											alt={`${skill.alt} logo`}
