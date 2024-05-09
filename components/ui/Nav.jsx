@@ -76,13 +76,16 @@ export default function Nav() {
 						duration: 0.2,
 					}}
 					className={cn(
-						"z-20 fixed flex flex-col justify-center md:grid grid-cols-3 items-center w-full h-20 md:px-8 py-3 bg-black !opacity-95"
+						"z-20 fixed text-center flex flex-col justify-center md:grid grid-cols-3 items-center w-full h-20 md:px-8 py-3 bg-black !opacity-95"
 					)}
 				>
-					<Link href="/" className="name justify-self-start">
+					<Link
+						href="/"
+						className="name justify-self-start hidden md:block"
+					>
 						Peterson Guo
 					</Link>
-					<ul className="flex items-center justify-self-center space-x-4">
+					<ul className="flex md:flex-row flex-col items-center justify-self-center space-x-4">
 						{navigation.map((item) => (
 							<li key={item.name}>
 								<Link href={item.href} className={"link"}>
@@ -91,10 +94,14 @@ export default function Nav() {
 							</li>
 						))}
 					</ul>
-					<ul className="flex items-center justify-self-end space-x-4">
+					<ul className="flex md:flex-row flex-col items-center justify-self-end space-x-4">
 						{links.map((item) => (
 							<li key={item.name}>
-								<Link href={item.href} target="_blank" className="link">
+								<Link
+									href={item.href}
+									target="_blank"
+									className="link"
+								>
 									{item.name}
 								</Link>
 							</li>

@@ -22,7 +22,7 @@ export default function WorkCard({
 			initial="initial"
 			animate="animate"
 			exit="exit"
-			className={`rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 even:justify-self-end w-[60%] justify-self-start even:ml-auto even:mr-0 my-5 ${
+			className={`rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 even:justify-self-end md:w-[60%] sm:w-full justify-self-start even:ml-auto even:mr-0 my-5 ${
 				company === "Current"
 					? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
 					: "bg-[var(--secondary-bg)] text-white"

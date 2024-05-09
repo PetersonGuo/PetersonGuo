@@ -202,7 +202,7 @@ export default function Skills() {
 					/>
 				)}
 			</div>
-			<div className="flex flex-wrap p-4 justify-center">
+			<div className="flex flex-wrap md:p-4 p-0 justify-center">
 				{Object.keys(skillsByCategory).map((category) => (
 					<div
 						key={category}

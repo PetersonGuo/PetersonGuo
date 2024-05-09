@@ -67,11 +67,11 @@ export default function Home() {
                     </p>
 
                     <p>
-                        {"If my journey resonates with you, whether you're curious about my passions or considering a collaborative project (like building a website), I'd love to connect. Reach out to learn more about my experiences or discuss potential opportunities together."}
+                        {"If my journey resonates with you, whether you're curious about my passions or considering a collaborative project, I'd love to connect. Reach out to learn more about my experiences or discuss potential opportunities together."}
                     </p>
                     <Link href="#contact" className="border-white border overflow-hidden rounded-2xl px-5 py-2 relative ease-in-out slide-fill hover:text-black">Contact Me</Link>
                 </section>
-                <section className="bg-[var(--secondary-bg)] flex justify-center rounded-2xl px-32 py-14">
+                <section className="bg-[var(--secondary-bg)] flex justify-center rounded-2xl md:px-32 py-14">
                     <Skills />
                 </section>
                 <section className="w-full">
@@ -79,7 +79,7 @@ export default function Home() {
                         <div>
                             <h1>Work History</h1>
                         </div>
-                        <div className={"grid"}>
+                        <div className={"md:grid"}>
                             {
                                 WorkData.map((data, i) => {
                                     return <WorkCard title={data.title} image={data.image} company={data.company} time={data.time} description={data.description} key={`WorkCard${i}`} />;
