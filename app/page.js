@@ -51,7 +51,7 @@ export default function Home() {
             </div>
             <main className="flex min-h-screen flex-col items-center justify-between home">
                 <section
-                    className="h-[400vh] bg-[var(--background-start-rgb)] w-full relative overflow-clip"
+                    className="h-[150vh] bg-[var(--background-start-rgb)] w-full relative overflow-clip"
                 >
                     <Hero
                         title={"Peterson Guo"}
