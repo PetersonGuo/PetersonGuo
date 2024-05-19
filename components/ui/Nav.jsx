@@ -24,40 +24,42 @@ const links = [
 	{ name: "LinkedIn", href: "https://www.linkedin.com/in/petersonguo/" },
 ];
 
-function classNames(...classes) {
-	return classes.filter(Boolean).join(" ");
-}
-
 export default function Nav() {
 	const { scrollYProgress } = useScroll();
 	const [open, setOpen] = useState(false);
-	const [mobile, setMobile] = useState(false);
+	const [mobile, setMobile] = useState(null);
 	const [visible, setVisible] = useState(true);
 	const [hasScrolled, setHasScrolled] = useState(false);
+	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
-		window.addEventListener("resize", () => {
-			setMobile(document.body.clientWidth < 768);
-		});
-		if (window.screen.width >= 768) {
+		const updateMobile = () => setMobile(window.innerWidth < 768);
+		updateMobile();
+		window.addEventListener("resize", updateMobile);
+
+		if (window.innerWidth >= 768) {
 			const handleScroll = () => {
 				if (window.scrollY > 50) {
 					setHasScrolled(true);
 				}
 			};
 			window.addEventListener("scroll", handleScroll);
-			return () => [
-				window.removeEventListener("scroll", handleScroll),
-				window.removeEventListener(
-					"resize",
-					setMobile(document.body.clientWidth < 768)
-				),
-			];
+			return () => {
+				window.removeEventListener("scroll", handleScroll);
+				window.removeEventListener("resize", updateMobile);
+			};
 		}
+
+		return () => {
+			window.removeEventListener("resize", updateMobile);
+		};
+	}, []);
+
+	useEffect(() => {
+		setIsMounted(true);
 	}, []);
 
 	useMotionValueEvent(scrollYProgress, "change", (current) => {
-		// Check if current is not undefined and is a number
 		if (typeof current === "number") {
 			let direction = current - scrollYProgress.getPrevious();
 
@@ -124,7 +126,12 @@ export default function Nav() {
 							>
 								Peterson Guo
 							</Link>
-							<ul className="flex md:flex-row flex-col items-center md:justify-self-center md:space-x-4">
+							<ul
+								className={cn(
+									"nav-links flex md:flex-row flex-col items-center md:justify-self-center md:space-x-4",
+									{ show: isMounted }
+								)}
+							>
 								{navigation.map((item) => (
 									<li key={item.name}>
 										<Link
@@ -137,7 +144,12 @@ export default function Nav() {
 									</li>
 								))}
 							</ul>
-							<ul className="flex md:flex-row flex-col items-center md:justify-self-end md:space-x-4 pt-4 md:pt-0">
+							<ul
+								className={cn(
+									"nav-links flex md:flex-row flex-col items-center md:justify-self-end md:space-x-4 pt-4 md:pt-0",
+									{ show: isMounted }
+								)}
+							>
 								{links.map((item) => (
 									<li key={item.name}>
 										<Link

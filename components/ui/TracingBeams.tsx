@@ -33,11 +33,11 @@ export const TracingBeam = ({
 
 	useEffect(() => {
 		window.addEventListener("resize", () => {
-			setWindowWidth(document.body.clientWidth);
+			setWindowWidth(window.innerWidth);
 		});
 		return () => {
 			window.removeEventListener("resize", () => {
-				setWindowWidth(document.body.clientWidth);
+				setWindowWidth(window.innerWidth);
 			});
 		};
 	}, []);

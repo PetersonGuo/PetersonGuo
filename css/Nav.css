@@ -35,3 +35,11 @@ nav ul {
 .name:hover {
     opacity: 0.5;
 }
+
+.nav-links {
+  display: none; /* Hide links by default */
+}
+
+.nav-links.show {
+  display: flex; /* Show links when JavaScript enables it */
+}
