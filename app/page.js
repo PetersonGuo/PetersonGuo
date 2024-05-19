@@ -58,7 +58,7 @@ export default function Home() {
                         description={<Typing />}
                     />
                 </section>
-                <section className="!mt-0 px-[30vw] items-center flex flex-col space-y-5 pt-10" id="about">
+                <section className="!mt-0 md:px-[30vw] px-5 items-center flex flex-col space-y-5 pt-10" id="about">
                     <p>
                         {"Hi there! I'm currently diving deep into the world of electrical engineering at the University of Waterloo, where my passion for technology is being shaped into a promising career. My journey is fueled by an insatiable curiosity for innovation and a drive to make technology more user-friendly and accessible. Outside the lab, I'm an avid snowboarder and fitness enthusiast, constantly seeking new challenges and experiences to broaden my horizons."}
                     </p>
@@ -71,10 +71,10 @@ export default function Home() {
                     </p>
                     <Link href="#contact" className="border-white border overflow-hidden rounded-2xl px-5 py-2 relative ease-in-out slide-fill hover:text-black">Contact Me</Link>
                 </section>
-                <section className="bg-[var(--secondary-bg)] flex justify-center rounded-2xl md:px-32 py-14">
+                <section className="bg-[var(--secondary-bg)] justify-center rounded-2xl md:px-32 px-5 py-14 hidden md:flex">
                     <Skills />
                 </section>
-                <section className="w-full">
+                <section className="w-full px-5">
                     <TracingBeam>
                         <div>
                             <h1>Work History</h1>
@@ -96,7 +96,7 @@ export default function Home() {
                         Coming Soon
                     </p>
                 </section>
-                <section className="w-full !py-0 !px-[20vw]">
+                <section className="w-full mt-5 !py-0 md:!px-[20vw] px-5">
                     <Contact />
                 </section>
             </main>

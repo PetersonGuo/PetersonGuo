@@ -38,13 +38,13 @@ export default function Hero({
 	return (
 		<div className="w-full h-full" ref={ref}>
 			<div className={cn("sticky top-80", className)}>
-				<p className="text-lg md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+				<p className="text-5xl md:text-7xl font-normal md:pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
 					{title}
 				</p>
-				<p className="text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
+				<p className="text-md md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
 					{description}
 				</p>
-				<div className="w-full h-[890px] -top-64 md:-top-64 flex items-center justify-center bg-red-transparent absolute space-x-2">
+				<div className="w-full h-[890px] -top-80 md:-top-64 flex items-center justify-center bg-red-transparent absolute space-x-2">
 					<Social social="github">
 						<FaGithub size={30} />
 					</Social>

@@ -7,6 +7,8 @@ import {
 	useMotionValueEvent,
 	useScroll,
 } from "framer-motion";
+import { HiXMark } from "react-icons/hi2";
+import { HiBars3 } from "react-icons/hi2";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -20,7 +22,7 @@ const links = [
 	{ name: "Resume", href: "/Peterson_Guo_Resume.pdf" },
 	{ name: "GitHub", href: "https://github.com/PetersonGuo" },
 	{ name: "LinkedIn", href: "https://www.linkedin.com/in/petersonguo/" },
-]
+];
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
@@ -28,6 +30,7 @@ function classNames(...classes) {
 
 export default function Nav() {
 	const { scrollYProgress } = useScroll();
+	const [open, setOpen] = useState(false);
 	const [visible, setVisible] = useState(true);
 	const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -76,37 +79,59 @@ export default function Nav() {
 						duration: 0.2,
 					}}
 					className={cn(
-						"z-20 fixed text-center flex flex-col justify-center md:grid grid-cols-3 items-center w-full h-20 md:px-8 py-3 bg-black !opacity-95"
+						`z-[100000] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-20 h-full md:px-8 md:py-3 bg-black md:text-sm text-2xl ease-in-out ${
+							open ? "" : "h-[10%]"
+						}`
 					)}
 				>
-					<Link
-						href="/"
-						className="name justify-self-start hidden md:block"
-					>
-						Peterson Guo
-					</Link>
-					<ul className="flex md:flex-row flex-col items-center justify-self-center space-x-4">
-						{navigation.map((item) => (
-							<li key={item.name}>
-								<Link href={item.href} className={"link"}>
-									{item.name}
-								</Link>
-							</li>
-						))}
-					</ul>
-					<ul className="flex md:flex-row flex-col items-center justify-self-end space-x-4">
-						{links.map((item) => (
-							<li key={item.name}>
-								<Link
-									href={item.href}
-									target="_blank"
-									className="link"
-								>
-									{item.name}
-								</Link>
-							</li>
-						))}
-					</ul>
+					{open ? (
+						<HiXMark
+							className="size-14 md:hidden absolute left-[10%]"
+							onClick={() => setOpen(false)}
+						/>
+					) : (
+						<HiBars3
+							className="size-10 md:hidden absolute left-[10%]"
+							onClick={() => {
+								setOpen(true);
+							}}
+						/>
+					)}
+					{open && (
+						<>
+							<Link
+								href="/"
+								className="name justify-self-start invisible md:visible"
+							>
+								Peterson Guo
+							</Link>
+							<ul className="flex md:flex-row flex-col items-center md:justify-self-center md:space-x-4">
+								{navigation.map((item) => (
+									<li key={item.name}>
+										<Link
+											href={item.href}
+											className={"link"}
+										>
+											{item.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+							<ul className="flex md:flex-row flex-col items-center md:justify-self-end md:space-x-4 pt-4 md:pt-0">
+								{links.map((item) => (
+									<li key={item.name}>
+										<Link
+											href={item.href}
+											target="_blank"
+											className="link"
+										>
+											{item.name}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</>
+					)}
 				</motion.nav>
 			</AnimatePresence>
 		</>

@@ -34,7 +34,9 @@ export const TracingBeam = ({
 		if (contentRef.current) {
 			setSvgHeight(contentRef.current.offsetHeight);
 		}
+
 	}, []);
+
 	useEffect(() => {
 		const unsubscribe = scrollYProgressVelocity.on(
 			"change",

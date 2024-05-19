@@ -39,7 +39,7 @@ export default function Contact() {
 
 	return (
 		<div
-			className="py-8 lg:py-16 px-20 w-full bg-[var(--secondary-bg)] rounded-2xl"
+			className="py-8 md:py-16 md:px-20 px-5 w-full bg-[var(--secondary-bg)] rounded-2xl"
 			id="contact"
 		>
 			<div className={"grid grid-cols-3 place-items-center mb-6"}>
