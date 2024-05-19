@@ -31,10 +31,14 @@ function classNames(...classes) {
 export default function Nav() {
 	const { scrollYProgress } = useScroll();
 	const [open, setOpen] = useState(false);
+	const [mobile, setMobile] = useState(false);
 	const [visible, setVisible] = useState(true);
 	const [hasScrolled, setHasScrolled] = useState(false);
 
 	useEffect(() => {
+		addEventListener("resize", () => {
+			setMobile(window.screen.width < 768);
+		});
 		if (window.screen.width >= 768) {
 			const handleScroll = () => {
 				if (window.scrollY > 50) {
@@ -79,25 +83,34 @@ export default function Nav() {
 						duration: 0.2,
 					}}
 					className={cn(
-						`z-[100000] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-20 h-full md:px-8 md:py-3 bg-black md:text-sm text-2xl ease-in-out ${
-							open ? "" : "h-[10%]"
+						`z-[100000] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-20 px-8 md:py-3 bg-black md:text-sm text-2xl ease-in-out ${
+							open ? "h-full" : mobile && "h-[10%] items-start"
 						}`
 					)}
 				>
-					{open ? (
-						<HiXMark
-							className="size-14 md:hidden absolute left-[10%]"
-							onClick={() => setOpen(false)}
-						/>
-					) : (
-						<HiBars3
-							className="size-10 md:hidden absolute left-[10%]"
-							onClick={() => {
-								setOpen(true);
-							}}
-						/>
+					{mobile && (
+						<>
+							{open ? (
+								<HiXMark
+									className="size-14 absolute left-[10%]"
+									onClick={() => setOpen(false)}
+								/>
+							) : (
+								<motion.div
+									transition={{ duration: 0.2 }}
+									exit={{ transform: "translateY(100%)" }}
+								>
+									<HiBars3
+										className="size-10 left-[10%]"
+										onClick={() => {
+											setOpen(true);
+										}}
+									/>
+								</motion.div>
+							)}
+						</>
 					)}
-					{open && (
+					{(open || !mobile) && (
 						<>
 							<Link
 								href="/"

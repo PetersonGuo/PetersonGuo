@@ -25,6 +25,7 @@ nav ul {
 
 .link:hover::before {
     transform: scaleX(1);
+    cursor: pointer;
 }
 
 .name {

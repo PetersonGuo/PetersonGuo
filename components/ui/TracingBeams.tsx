@@ -25,17 +25,23 @@ export const TracingBeam = ({
 	// track velocity of scroll to increase or decrease distance between svg gradient y coordinates.
 	const scrollYProgressVelocity = useVelocity(scrollYProgress);
 	const [velo, setVelocity] = React.useState(0);
+	const [windowWidth, setWindowWidth] = useState(0);
 
 	const contentRef = useRef<HTMLDivElement>(null);
 
 	const [svgHeight, setSvgHeight] = useState(0);
 
 	useEffect(() => {
+		addEventListener("resize", () => {
+			setWindowWidth(window.screen.width);
+		});
+	}, []);
+
+	useEffect(() => {
 		if (contentRef.current) {
 			setSvgHeight(contentRef.current.offsetHeight);
 		}
-
-	}, []);
+	}, [windowWidth]);
 
 	useEffect(() => {
 		const unsubscribe = scrollYProgressVelocity.on(
