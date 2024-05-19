@@ -32,9 +32,14 @@ export const TracingBeam = ({
 	const [svgHeight, setSvgHeight] = useState(0);
 
 	useEffect(() => {
-		addEventListener("resize", () => {
-			setWindowWidth(window.screen.width);
+		window.addEventListener("resize", () => {
+			setWindowWidth(document.body.clientWidth);
 		});
+		return () => {
+			window.removeEventListener("resize", () => {
+				setWindowWidth(document.body.clientWidth);
+			});
+		};
 	}, []);
 
 	useEffect(() => {

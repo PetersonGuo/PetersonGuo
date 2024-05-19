@@ -36,8 +36,8 @@ export default function Nav() {
 	const [hasScrolled, setHasScrolled] = useState(false);
 
 	useEffect(() => {
-		addEventListener("resize", () => {
-			setMobile(window.screen.width < 768);
+		window.addEventListener("resize", () => {
+			setMobile(document.body.clientWidth < 768);
 		});
 		if (window.screen.width >= 768) {
 			const handleScroll = () => {
@@ -46,7 +46,13 @@ export default function Nav() {
 				}
 			};
 			window.addEventListener("scroll", handleScroll);
-			return () => window.removeEventListener("scroll", handleScroll);
+			return () => [
+				window.removeEventListener("scroll", handleScroll),
+				window.removeEventListener(
+					"resize",
+					setMobile(document.body.clientWidth < 768)
+				),
+			];
 		}
 	}, []);
 
