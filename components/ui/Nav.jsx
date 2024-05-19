@@ -124,6 +124,7 @@ export default function Nav() {
 										<Link
 											href={item.href}
 											className={"link"}
+											onClick={() => setOpen(false)}
 										>
 											{item.name}
 										</Link>
@@ -137,6 +138,7 @@ export default function Nav() {
 											href={item.href}
 											target="_blank"
 											className="link"
+											onClick={() => setOpen(false)}
 										>
 											{item.name}
 										</Link>
