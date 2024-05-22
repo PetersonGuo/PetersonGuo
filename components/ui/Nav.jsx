@@ -11,6 +11,7 @@ import { HiXMark } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navigation = [
 	{ name: "About", href: "/#about", current: true },
@@ -25,12 +26,41 @@ const links = [
 ];
 
 export default function Nav() {
+	const pathname = usePathname();
 	const { scrollYProgress } = useScroll();
 	const [open, setOpen] = useState(false);
 	const [mobile, setMobile] = useState(null);
 	const [visible, setVisible] = useState(true);
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const [isMounted, setIsMounted] = useState(false);
+
+	useEffect(() => {
+		async function getIP() {
+			try {
+				const ipReq = await fetch("https://jsonip.com/", {
+					mode: "cors",
+				});
+				const ip = await ipReq.json();
+				const req = await fetch("/api/ip", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ip: ip.ip, path: pathname, addtional_json: JSON.stringify({ userAgent: window.navigator.userAgent })}),
+				});
+				const reqData = await req.json();
+			} catch (err) {
+				const req = await fetch("/api/ip", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ IPv4: "Error", IPv6: "Error" }),
+				});
+			}
+		}
+		getIP();
+	}, [pathname]);
 
 	useEffect(() => {
 		const updateMobile = () => setMobile(window.innerWidth < 768);
