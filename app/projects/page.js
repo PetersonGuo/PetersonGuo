@@ -1,6 +1,5 @@
 "use client";
-import { ReactTerminal } from "react-terminal";
-import Nav from '@/components/ui/Nav';
+import Nav from '@/components/Nav';
 
 export default function Page() {
     return (

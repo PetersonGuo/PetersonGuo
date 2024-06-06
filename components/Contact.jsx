@@ -1,5 +1,5 @@
 "use client";
-import Social from "../Social";
+import Social from "./Social";
 
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 

@@ -1,13 +1,13 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { cn } from "@/utils/cn";
 import {
 	motion,
-	useTransform,
 	useScroll,
-	useVelocity,
 	useSpring,
+	useTransform,
+	useVelocity,
 } from "framer-motion";
-import { cn } from "@/utils/cn";
+import React, { useEffect, useRef, useState } from "react";
 
 export const TracingBeam = ({
 	children,
@@ -24,7 +24,7 @@ export const TracingBeam = ({
 
 	// track velocity of scroll to increase or decrease distance between svg gradient y coordinates.
 	const scrollYProgressVelocity = useVelocity(scrollYProgress);
-	const [velo, setVelocity] = React.useState(0);
+	const [velo, setVelocity] = useState(0);
 	const [windowWidth, setWindowWidth] = useState(0);
 
 	const contentRef = useRef<HTMLDivElement>(null);
@@ -43,10 +43,25 @@ export const TracingBeam = ({
 	}, []);
 
 	useEffect(() => {
+		const updateHeight = () => {
+			if (contentRef.current) {
+				setSvgHeight(contentRef.current.scrollHeight);
+			}
+		};
+		updateHeight();
+
+		const observer = new MutationObserver(updateHeight);
 		if (contentRef.current) {
-			setSvgHeight(contentRef.current.offsetHeight);
+			observer.observe(contentRef.current, {
+				childList: true,
+				subtree: true,
+			});
 		}
-	}, [windowWidth]);
+
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
 
 	useEffect(() => {
 		const unsubscribe = scrollYProgressVelocity.on(
@@ -56,7 +71,7 @@ export const TracingBeam = ({
 			}
 		);
 		return () => unsubscribe();
-	}, []);
+	}, [scrollYProgressVelocity]);
 
 	const y1 = useSpring(
 		useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
@@ -89,7 +104,7 @@ export const TracingBeam = ({
 						boxShadow:
 							scrollYProgress.get() > 0
 								? "none"
-								: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+								: "rgba(220, 154, 154, 0.24) 0px 3px 8px",
 					}}
 					className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
 				>

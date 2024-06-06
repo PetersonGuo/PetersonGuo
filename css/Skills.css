@@ -12,12 +12,12 @@
 }
 
 .tab.active {
-	color: #8abbff;
+	color: #B3B4BD;
 }
 
 .tabs .selector {
 	position: absolute;
-	border-bottom: 2px solid #076eff;
+	border-bottom: 2px solid #B3B4BD;
 	height: 100%;
 	left: 0;
 	transition: 0.3s all ease-in-out;
