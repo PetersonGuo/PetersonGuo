@@ -7,11 +7,10 @@ import {
 	useMotionValueEvent,
 	useScroll,
 } from "framer-motion";
-import { HiXMark } from "react-icons/hi2";
-import { HiBars3 } from "react-icons/hi2";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { HiBars3, HiXMark } from "react-icons/hi2";
 
 const navigation = [
 	{ name: "About", href: "/#about", current: true },
@@ -63,6 +62,7 @@ export default function Nav() {
 	}, [pathname]);
 
 	useEffect(() => {
+		setIsMounted(true);
 		const updateMobile = () => setMobile(window.innerWidth < 768);
 		updateMobile();
 		window.addEventListener("resize", updateMobile);
@@ -83,10 +83,6 @@ export default function Nav() {
 		return () => {
 			window.removeEventListener("resize", updateMobile);
 		};
-	}, []);
-
-	useEffect(() => {
-		setIsMounted(true);
 	}, []);
 
 	useMotionValueEvent(scrollYProgress, "change", (current) => {
@@ -121,8 +117,8 @@ export default function Nav() {
 						duration: 0.2,
 					}}
 					className={cn(
-						`z-[100000] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-20 px-8 md:py-3 bg-black md:text-sm text-2xl ease-in-out ${
-							open ? "h-full" : mobile && "h-[10%] items-start"
+						`z-[100000] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-20 px-8 md:py-3 bg-black md:text-sm text-2xl transition-all duration-300 ease-in-out ${
+							open ? "h-full" : mobile && "h-[13%] items-start"
 						}`
 					)}
 				>
@@ -130,21 +126,22 @@ export default function Nav() {
 						<>
 							{open ? (
 								<HiXMark
-									className="size-14 absolute left-[10%]"
-									onClick={() => setOpen(false)}
+									className="size-14 absolute left-[10%] active:rotate-180 transition-all ease-in-out"
+									onClick={() => { setOpen(false) }}
 								/>
 							) : (
-								<motion.div
-									transition={{ duration: 0.2 }}
-									exit={{ transform: "translateY(100%)" }}
-								>
-									<HiBars3
-										className="size-10 left-[10%]"
-										onClick={() => {
-											setOpen(true);
-										}}
-									/>
-								</motion.div>
+								<AnimatePresence>
+									<motion.div
+										initial={{ y: 0 }}
+										animate={{ y: open ? 100 : 0 }}
+										transition={{ duration: 0.2 }}
+									>
+										<HiBars3
+											className="size-10 left-[10%]"
+											onClick={() => setOpen(true)}
+										/>
+									</motion.div>
+								</AnimatePresence>
 							)}
 						</>
 					)}

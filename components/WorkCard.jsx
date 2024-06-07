@@ -56,20 +56,32 @@ export default function WorkCard({ children, workData }) {
 					</div>
 					<div>
 						<h4 className="text-lg font-bold">{workData.title}</h4>
-						<p className="lg:text-md sm:text-sm font-normal">
-							{`${workData.start.toLocaleDateString("en-US", {
-								year: "numeric",
-								month: "short",
-							})} - ${workData.end.toLocaleDateString("en-US", {
-								year: "numeric",
-								month: "short",
-							})}`}{" "}
-							&#x2022;{" "}
-							{dateDifference(workData.start, workData.end)}
-						</p>
+						<div className="flex">
+							<p className="lg:text-md text-sm font-normal">
+								{`${workData.start.toLocaleDateString("en-US", {
+									year: "numeric",
+									month: "short",
+								})} - ${workData.end.toLocaleDateString(
+									"en-US",
+									{
+										year: "numeric",
+										month: "short",
+									}
+								)}`}{" "}
+								&#x2022;
+							</p>
+							<p className="text-sm ms-1">
+								{dateDifference(workData.start, workData.end)}
+							</p>
+						</div>
 					</div>
 				</div>
-				<MdOutlineChevronRight size={40} className={`ml-auto mr-0 transition-all ease-in-out ${open ? "rotate-90" : ""}`} />
+				<MdOutlineChevronRight
+					size={40}
+					className={`ml-auto mr-0 transition-all ease-in-out ${
+						open ? "rotate-90" : ""
+					}`}
+				/>
 			</div>
 			{open && (
 				<ul className="text-sm list-disc px-8">
