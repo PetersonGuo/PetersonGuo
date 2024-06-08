@@ -37,9 +37,9 @@ function dateDifference(start, end) {
 export default function WorkCard({ children, workData }) {
 	const [open, setOpen] = useState(false);
 	return (
-		<>
+		<div className="bg-gray-900 px-5 py-3 rounded-xl w-full space-y-2">
 			<div
-				className="flex flex-row items-center px-5 py-2 rounded-xl w-full bg-gray-900 justify-between cursor-pointer"
+				className="flex flex-row items-center justify-between cursor-pointer"
 				onClick={() => {
 					setOpen(!open);
 				}}
@@ -87,13 +87,13 @@ export default function WorkCard({ children, workData }) {
 				<ul className="text-sm list-disc px-8">
 					{workData.description.map((item, i) => {
 						return (
-							<li key={`work_description_${i}`} className="py-2">
-								<p>{item}</p>
+							<li key={`work_description_${i}`} className="">
+								<p className="text-base font-normal">{item}</p>
 							</li>
 						);
 					})}
 				</ul>
 			)}
-		</>
+		</div>
 	);
 }
