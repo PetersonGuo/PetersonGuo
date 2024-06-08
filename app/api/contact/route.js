@@ -9,7 +9,7 @@ export async function POST(req) {
         const client = new postmark.ServerClient(process.env.MAIL_API);
 
         const response = await client.sendEmail({
-            "From": process.env.MAIL_TO,
+            "From": "no-reply@petersonguo.com",
             "To": process.env.MAIL_TO,
             "Subject": `${data.subject} - ${data.email}`,
             "TextBody": data.message,
