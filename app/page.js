@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Contact from '@/components/Contact';
 import Nav from "@/components/Nav";
 import Skills from '@/components/Skills';
@@ -8,6 +9,8 @@ import Hero from "@/components/hero";
 import Link from 'next/link';
 
 import '@/css/Home.css';
+
+const DynamicTracingBeam = dynamic(() => import('@/components/TracingBeams').then(mod => mod.TracingBeam), { ssr: false });
 
 export default function Home() {
     return (
@@ -41,12 +44,12 @@ export default function Home() {
                     <Skills />
                 </section>
                 <section className="w-full px-5">
-                    <TracingBeam>
+                    <DynamicTracingBeam>
                         <div>
                             <h1>Work History</h1>
                         </div>
                         <WorkContainer />
-                    </TracingBeam>
+                    </DynamicTracingBeam>
                 </section>
                 <section className={""}>
                     <h1>
