@@ -29,7 +29,7 @@ export default function Home() {
                         {"Hi there! I'm currently diving deep into the world of electrical engineering at the University of Waterloo, where my passion for technology is being shaped into a promising career. My journey is fueled by an insatiable curiosity for innovation and a drive to make technology more user-friendly and accessible. Outside of school, I'm an avid snowboarder and fitness enthusiast, constantly seeking new challenges and experiences to broaden my horizons."}
                     </p>
                     <p>
-                        {"My academic endeavors at Waterloo are just one part of my story. I'm also deeply passionate about applying what I learn in real-world scenarios, which is why I'm eagerly looking for fall 2024 internships. My goal is to merge my technical expertise with my entrepreneurial spirit to create solutions that truly make a difference."}
+                        {"My academic endeavors at Waterloo are just one part of my story. I'm also deeply passionate about applying what I learn in real-world scenarios. My goal is to merge my technical expertise with my entrepreneurial spirit to create solutions that truly make a difference."}
                     </p>
 
                     <p>

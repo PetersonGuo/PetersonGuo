@@ -117,7 +117,7 @@ export default function Nav() {
 						duration: 0.2,
 					}}
 					className={cn(
-						`z-[100000] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-20 px-8 md:py-3 bg-black md:text-sm text-2xl transition-all duration-300 ease-in-out ${
+						`z-[10] fixed text-center justify-center flex flex-col md:grid grid-cols-3 items-center w-full md:h-[5em] px-8 md:py-3 bg-black md:text-sm text-2xl transition-all duration-300 ease-in-out ${
 							open ? "h-full" : mobile && "h-[13%] items-start"
 						}`
 					)}

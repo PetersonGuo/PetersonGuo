@@ -21,7 +21,7 @@ const MouseGradient = () => {
 	return (
 		<div
 			style={{
-				zIndex: 1000,
+				zIndex: 100,
 				position: "fixed",
 				left: position.x,
 				top: position.y,
