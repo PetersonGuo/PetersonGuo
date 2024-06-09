@@ -1,6 +1,6 @@
 <h1 align="center">Hi, I'm Peterson Guo👋</h1>
 
-I am a passionate `Software Developer` from Canada studying `Electrical Engineering` at the `University of Waterloo`. I'm interested in `Quantitative Finance`, `Low Level Computing` and `AI/ML`.
+I am a passionate `Software Developer` studying `Electrical Engineering` at the `University of Waterloo`. I'm interested in `Quantitative Finance`, `Low Level Computing` and `AI/ML`.
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
