@@ -1,10 +1,11 @@
 "use client";
-import Social from "./Social";
 
+import { useRef } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
+import Social from "./Social";
 import "@/css/Contact.css";
-import { useRef } from "react";
+
 
 export default function Contact() {
 	const email = useRef();

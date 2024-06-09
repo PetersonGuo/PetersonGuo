@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import Contact from '@/components/Contact';
 import Nav from "@/components/Nav";
 import Skills from '@/components/Skills';
 import Typing from "@/components/Typing";
@@ -10,6 +9,7 @@ import Link from 'next/link';
 import '@/css/Home.css';
 
 const DynamicTracingBeam = dynamic(() => import('@/components/TracingBeams').then(mod => mod.TracingBeam), { ssr: false });
+const DynamicContact = dynamic(() => import('@/components/Contact'), { ssr: false });
 
 export default function Home() {
     return (
@@ -58,8 +58,8 @@ export default function Home() {
                         Coming Soon
                     </p>
                 </section>
-                <section className="w-full mt-5 !py-0 md:!px-[20vw] px-5">
-                    <Contact />
+                <section className="w-full mt-5 py-0 md:px-[20vw] px-5">
+                    <DynamicContact />
                 </section>
             </main>
         </>
