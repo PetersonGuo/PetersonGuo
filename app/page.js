@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import Contact from '@/components/Contact';
 import Nav from "@/components/Nav";
 import Skills from '@/components/Skills';
-import { TracingBeam } from "@/components/TracingBeams";
 import Typing from "@/components/Typing";
 import WorkContainer from "@/components/WorkContainer";
 import Hero from "@/components/hero";
