@@ -1,6 +1,7 @@
 <h1 align="center">Hi, I'm Peterson Guo👋</h1>
-##
+
 I am a passionate `Software Developer` from Canada studying `Electrical Engineering` at the `University of Waterloo`. I'm interested in `Quantitative Finance`, `Low Level Computing` and `AI/ML`.
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://twitter.com/petersonguo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="petersonguo" height="30" width="40" /></a>
