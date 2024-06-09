@@ -1,5 +1,4 @@
 import WorkCard from "./WorkCard";
-import Image from 'next/image';
 
 const WorkData = [
 	{
@@ -7,7 +6,7 @@ const WorkData = [
 		company: "eSentire",
 		image: "/esentire.png",
 		start: new Date("01/01/2024"),
-		end: new Date("04/01/2024"),
+		end: new Date("05/01/2024"),
 		description: [
 			"Directed the development of a key threat analytics dashboard, which has become a cornerstone project, significantly boosting client engagement through enhanced data visualization and automated reporting. The dashboard’s success has catalyzed a strategic shift towards advanced analytics solutions, making it a major topic of discussion among company executives and a pivotal part of our operational transformation.",
 			"Enhanced data management efficiencies by developing a JSON-to-database conversion function, significantly improving the handling and processing of complex data structures.",
@@ -49,12 +48,7 @@ export default function WorkContainer() {
 		<>
 			<div className={"space-y-2"}>
 				{WorkData.map((data, i) => {
-					return (
-						<WorkCard
-							workData={data}
-							key={`WorkCard${i}`}
-						/>
-					);
+					return <WorkCard workData={data} key={`WorkCard${i}`} />;
 				})}
 			</div>
 		</>
