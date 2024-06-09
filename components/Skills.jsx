@@ -150,7 +150,6 @@ export default function Skills() {
 	}, []);
 
 	const setActive = (e) => {
-		console.log(e);
 		setActiveCategory(e.target.innerText);
 		setActiveTab(e.target);
 	};
