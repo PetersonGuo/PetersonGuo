@@ -11,7 +11,7 @@ const WorkData = [
 			"Developed a threat analytics dashboard that significantly boosted engagement through enhanced data visualization and automated reporting, becoming a key project and driving strategic adoption of advanced analytics.",
 			"Automated data entry using a JSON-to-database conversion function, improving its speed by over 50% by implementing recursion and efficient data structures.",
 			"Automated deployment processes across 4 major projects, reducing manual operation by approximately 30% through the use of infrastructure as code and CI/CD practices.",
-			"Dramatically enhancing data processing speed of logging functions by over 400% by using data structures and algorithms and list comprehension.",
+			"Dramatically enhanced data processing speed of logging functions by over 400% by using data structures and algorithms and list comprehension.",
 			"Enhanced the logging and security protocols for multiple projects by implementing 3 standardized methods to ensure robust access control and system monitoring.",
 			"Developed an open-source, multi-threaded GUI PCAP scrubber, adding over 10 functionalities such as multiple instances, text editing, automatic checksum validation, autosave, and find and replace to enhance user experience.",
 		],
