@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.0",
-    "@heroicons/react": "^2.1.4",
+    "@heroicons/react": "^2.1.5",
     "@types/nodemailer": "^6.4.15",
     "@vercel/postgres": "^0.8.0",
     "clsx": "^2.1.1",
