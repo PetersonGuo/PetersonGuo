@@ -5,6 +5,7 @@ import Typing from "@/components/Typing";
 import WorkContainer from "@/components/WorkContainer";
 import Hero from "@/components/hero";
 import Link from 'next/link';
+import ProjectCarousel from "@/components/ProjectCarousel";
 
 import '@/css/Home.css';
 
@@ -50,13 +51,11 @@ export default function Home() {
                         <WorkContainer />
                     </DynamicTracingBeam>
                 </section>
-                <section className={""}>
+                <section className={"w-full flex flex-col items-center"}>
                     <h1>
                         Projects
                     </h1>
-                    <p className="text-center">
-                        Coming Soon
-                    </p>
+                    <ProjectCarousel />
                 </section>
                 <section className="w-full mt-5 py-0 md:px-[20vw] px-5">
                     <DynamicContact />

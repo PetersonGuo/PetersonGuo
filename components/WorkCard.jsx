@@ -83,17 +83,15 @@ export default function WorkCard({ children, workData }) {
 					}`}
 				/>
 			</div>
-			{open && (
-				<ul className="text-sm list-disc px-8">
-					{workData.description.map((item, i) => {
-						return (
-							<li key={`work_description_${i}`} className="">
-								<p className="text-base font-normal">{item}</p>
-							</li>
-						);
-					})}
-				</ul>
-			)}
+			<ul className="text-sm list-disc px-8">
+				{open && workData.description.map((item, i) => {
+					return (
+						<li key={`work_description_${i}`} className="">
+							<p className="text-base font-normal">{item}</p>
+						</li>
+					);
+				})}
+			</ul>
 		</div>
 	);
 }
