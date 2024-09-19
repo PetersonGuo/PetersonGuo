@@ -2,6 +2,16 @@ import WorkCard from "./WorkCard";
 
 const WorkData = [
 	{
+		title: "Software Engineer Intern",
+		company: "AMD",
+		image: "/amd.png",
+		start: new Date("09/09/2024"),
+		end: new Date("12/22/2024"),
+		description: [
+			"Display Team, working on Radeon Graphics drivers"
+		],
+	},
+	{
 		title: "Security Developer",
 		company: "eSentire",
 		image: "/esentire.png",

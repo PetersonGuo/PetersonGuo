@@ -48,7 +48,7 @@ export default function WorkCard({ children, workData }) {
 					<div className="bg-white rounded-xl p-1">
 						<Image
 							alt={`${workData.company} ${workData.title}`}
-							className="aspect-square"
+							className=""
 							src={workData.image}
 							width={40}
 							height={40}
