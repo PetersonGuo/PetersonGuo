@@ -13,7 +13,7 @@
     "@heroicons/react": "^2.1.5",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
-    "@types/nodemailer": "^6.4.15",
+    "@types/nodemailer": "^6.4.16",
     "@vercel/postgres": "^0.9.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.30",
