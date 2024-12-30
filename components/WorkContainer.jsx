@@ -8,7 +8,13 @@ const WorkData = [
 		start: new Date("09/09/2024"),
 		end: new Date("12/22/2024"),
 		description: [
-			"Display Team, working on Radeon Graphics drivers"
+			"Developed kernel drivers in C and C++ for next-gen AMD graphics units, enhancing hardware compatibility and performance by ensuring efficient communication between the GPU/APU and display.",
+			"Triaged over 60 software bugs in 3 months, utilizing kernel debugging, memory dumping, and hardware register analysis",
+			"Diagnosed and resolved critical issues including BSODs, system hangs, races, and visual rendering anomalies in display drivers and GPU firmware.",
+			"Experimented with high performance compute optimizations in low-level systems programming and interaction with Windows 11 API and hardware abstraction layers.",
+			"Analyzed firmware interactions, memory crash dumps and live kernel debug sessions to identify root causes of initialization failures, performance bottlenecks, and power management issues.",
+			"Contributed to open-source AMD driver code which can be found in the Linux kernel.",
+			"Led the development of a lightweight ML-based upscaling PoC, integrating temporal and spatial optimization techniques to enhance display pipeline efficiency."
 		],
 	},
 	{
