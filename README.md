@@ -13,7 +13,7 @@ I am a passionate `Software Developer` studying `Electrical Engineering` at the 
 
 <h2>My Skills</h2>
 
-![My Skills](https://skillicons.dev/icons?i=cpp,c,py,java,cs,latex,bash,html,css,js,ts,nextjs,react,nodejs,express,vue,docker,gcp,aws,terraform,django,fastapi,flask,debian,windows,linux,kali,ubuntu,arduino,raspberrypi,opencv,tensorflow,dynamodb,mongodb,mysql,postgres,sqlite,supabase,firebase,cloudflare,git)
+![My Skills](https://skillicons.dev/icons?i=cpp,c,py,java,cs,bash,html,css,js,ts,nextjs,react,nodejs,express,vue,docker,gcp,aws,terraform,fastapi,flask,debian,windows,linux,ubuntu,arduino,raspberrypi,opencv,tensorflow,mongodb,mysql,postgres,git)
 
 ![PetersonGuo's GitHub stats](https://github-readme-stats.vercel.app/api?username=petersonguo&show_icons=true&theme=dark)
 
