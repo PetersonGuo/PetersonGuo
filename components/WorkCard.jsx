@@ -37,7 +37,7 @@ function dateDifference(start, end) {
 export default function WorkCard({ children, workData }) {
 	const [open, setOpen] = useState(false);
 	return (
-		<div className="bg-gray-900 px-5 py-3 rounded-xl w-full space-y-2">
+		<div className="bg-[#1E1E1E] px-5 py-3 rounded-xl w-full space-y-2">
 			<div
 				className="flex flex-row items-center justify-between cursor-pointer"
 				onClick={() => {
