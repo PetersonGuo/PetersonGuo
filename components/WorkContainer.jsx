@@ -34,7 +34,7 @@ const WorkData = [
 		location: "Remote",
 	},
 	{
-		title: "Simulation Developer",
+		title: "Software Developer",
 		company: "COBWEB",
 		image: "/cobweb.png",
 		start: new Date("06/01/2023"),
