@@ -1,3 +1,4 @@
+"use client";
 import dynamic from 'next/dynamic';
 import Nav from "@/components/Nav";
 import Skills from '@/components/Skills';
