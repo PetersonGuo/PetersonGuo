@@ -5,10 +5,7 @@ class Typing extends React.Component {
 	componentDidMount() {
 		const options = {
 			strings: [
-				"I am a Software Engineer",
 				"I am an Electrical Engineer",
-				"I am an Embedded Systems Developer",
-				"I am a Machine Learning Engineer",
 			],
 			typeSpeed: 50,
 			backSpeed: 50,
