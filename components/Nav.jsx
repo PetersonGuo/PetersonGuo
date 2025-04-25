@@ -14,7 +14,7 @@ import { HiBars3, HiXMark } from "react-icons/hi2";
 
 const navigation = [
 	{ name: "About", href: "/#about", current: true },
-	{ name: "Projects", href: "/projects", current: false },
+	{ name: "Projects", href: "/#projects", current: false },
 	{ name: "Contact", href: "/#contact", current: false },
 ];
 

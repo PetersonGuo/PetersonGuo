@@ -2,12 +2,12 @@ import '@/css/Project.css';
 import { SplideSlide } from "@splidejs/react-splide";
 import { TbExternalLink } from "react-icons/tb";
 
-export default function ProjectCard({ children, project, index, setHoveredIndex, setFlippedIndex, flippedIndex, isSlide }) {
-    const Container = isSlide ? SplideSlide : "div";
-    return (
+export default function ProjectCard({ children, project, index, setHoveredIndex, setFlippedIndex, flippedIndex, isSlide, className }) {
+	const Container = isSlide ? SplideSlide : "div";
+	return (
 		<Container
 			key={`Project${index}`}
-			className="box flex-none transition-all duration-300 ease-in-out"
+			className={`box flex-none transition-all duration-300 ease-in-out ${className}`}
 			style={{ scrollSnapAlign: "start" }}
 			onMouseEnter={(e) => {
 				setHoveredIndex(index);

@@ -4,7 +4,6 @@ import "@/css/Project.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/react-splide/css";
-import { TbExternalLink } from "react-icons/tb";
 import ProjectData from "@/components/ProjectData";
 import ProjectCard from "@/components/ProjectCard";
 
@@ -34,6 +33,7 @@ export default function ProjectCarousel() {
           pagination: false,
           perPage: 3,
           gap: "1.5rem",
+          wheel: true,
           autoScroll: {
             rewind: false,
             speed: 0.75,

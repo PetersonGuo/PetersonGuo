@@ -1,17 +1,18 @@
 "use client";
-import dynamic from 'next/dynamic';
 import Nav from "@/components/Nav";
+import ProjectCarousel from "@/components/ProjectCarousel";
 import Skills from '@/components/Skills';
 import Typing from "@/components/Typing";
 import WorkContainer from "@/components/WorkContainer";
 import Hero from "@/components/hero";
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import ProjectCarousel from "@/components/ProjectCarousel";
+import Image from 'next/image';
 
 import '@/css/Home.css';
 
-const DynamicTracingBeam = dynamic(() => import('@/components/TracingBeams').then(mod => mod.TracingBeam), { ssr: false });
-const DynamicContact = dynamic(() => import('@/components/Contact'), { ssr: false });
+const DynamicTracingBeam = dynamic(() => import('@/components/TracingBeams').then(mod => mod.TracingBeam));
+const DynamicContact = dynamic(() => import('@/components/Contact'));
 
 export default function Home() {
     return (
@@ -28,21 +29,35 @@ export default function Home() {
                         description={<Typing />}
                     />
                 </section>
-                <section className="!mt-0 md:px-[30vw] px-5 items-center flex flex-col space-y-5 pt-10" id="about">
+                <section className="!mt-0 md:w-[50vw] px-5 flex flex-col space-y-5 pt-10" id="about">
                     <p>
-                        {"Hi there! I'm currently diving deep into the world of electrical engineering at the University of Waterloo, where my passion for technology is being shaped into a promising career. My journey is fueled by an insatiable curiosity for innovation and a drive to make technology more user-friendly and accessible. Outside of school, I'm an avid snowboarder and fitness enthusiast, constantly seeking new challenges and experiences to broaden my horizons."}
+                        {"Hi there! I'm Peterson Guo, an Electrical Engineer at the University of Waterloo. I focus on low level programming, embedded systems, and digital design."}
                     </p>
-                    <p>
-                        {"My academic endeavors at Waterloo are just one part of my story. I'm also deeply passionate about applying what I learn in real-world scenarios. My goal is to merge my technical expertise with my entrepreneurial spirit to create solutions that truly make a difference."}
-                    </p>
-
-                    <p>
-                        {"If my journey resonates with you, whether you're curious about my passions or considering a collaborative project, I'd love to connect. Reach out to learn more about my experiences or discuss potential opportunities together."}
-                    </p>
-                    <Link href="#contact" className="border-white border overflow-hidden rounded-2xl px-5 py-2 relative ease-in-out slide-fill hover:text-black">Contact Me</Link>
+                    <div>
+                        <Link href="#contact" className="border-white border overflow-hidden rounded-2xl px-5 py-2 relative ease-in-out slide-fill hover:text-black">Contact Me</Link>
+                    </div>
                 </section>
                 <section className="bg-[var(--secondary-bg)] justify-center rounded-2xl md:px-32 px-5 py-14 hidden md:flex">
                     <Skills />
+                </section>
+                <section className="w-full !mt-0 md:px-[10vw] px-5 flex flex-col space-y-5 py-10">
+                    <h1 className='m-0 p-0 mx-auto text-center'>
+                        Education
+                    </h1>
+                    <div className="flex flex-row items-center rounded-xl bg-[var(--secondary-bg)] p-4 space-x-5 md:w-[30vw] mx-auto justify-center">
+                        <Image src="/waterloo.png" alt="University of Waterloo" width={40} height={40} className="inline-block" />
+                        <div>
+                            <h3 className='m-0 p-0'>
+                                {"University of Waterloo"}
+                            </h3>
+                            <p className='m-0 p-0 text-sm text-gray-300'>
+                                {"BASc in Electrical Engineering, Honours, Co-op"}
+                            </p>
+                            <p className="m-0 p-0 text-sm text-gray-300">
+                                2023-2028
+                            </p>
+                        </div>
+                    </div>
                 </section>
                 <section className="w-full px-5">
                     <DynamicTracingBeam>

@@ -1,29 +1,31 @@
-import { FaGithub } from "react-icons/fa";
-
 const ProjectData = [
 	{
 		name: "InvestIQ",
 		description:
 			"A stock analysis tool that provides real-time data and insights to help users make informed investment decisions.",
 		link: "https://github.com/PetersonGuo/InvestIQ",
+		tech: ["Python", "Tensorflow", "IBKR", "LSTM", "YFinanace"],
 	},
 	{
 		name: "Bionic Evo",
 		description:
 			"A prosthetic limb that uses AI to optimize movement and provide a more natural user experience.",
 		link: "https://github.com/PetersonGuo/BionicEvo",
+		tech: ["C++", "Assembly", "STM32"],
 	},
 	{
 		name: "Sentiview",
 		description:
 			"A sentiment analysis tool that uses machine learning to analyze social media data and provide insights to businesses.",
 		link: "https://github.com/PetersonGuo/SentiView",
+		tech: ["Python", "React", "Cohere", "Flask", "Selenium"],
 	},
 	{
 		name: "Assisted Reader",
 		description:
 			"A reading tool that uses AI to help users read more efficiently and retain information better.",
 		link: "https://github.com/PetersonGuo/AssistedReader",
+		tech: ["Python", "React", "Tesseract", "ESP32", "AutoCorrect", "Flask", "Docker"]
 	},
 	{
 		name: "MindBridge",
@@ -32,12 +34,28 @@ const ProjectData = [
 		link: "https://mindbridge.study",
 		devpost: "https://devpost.com/software/mindbridge",
 		github: "https://github.com/mindbridge-study/MindBridge",
+		tech: ["Python", "React", "FastAPI", "Twillo", "MongoDB", "OpenAI", "Auth0"],
 	},
 	{
 		name: "TicTacToe AI",
 		description:
 			"A TicTacToe game that uses AI to provide a challenging opponent for players.",
 		link: "https://github.com/PetersonGuo/TicTacToe",
+		tech: ["Java"],
+	},
+	{
+		name: "Click AI",
+		description:
+			"(IN PROGRESS) A Camera app with AI Assistance to help you take the perfect picture!",
+		link: "https://github.com/mindbridge-study/GeminiAIHacks",
+		tech: ["Flutter", "Python", "GeminiAI", "NVIDIA Jetson"],
+	},
+	{
+		name: "ML Upscaler",
+		description:
+			"A transformer based real-time upscaler which aims to do 2x upscaling content at 144hz while maintaing visual fidelity.",
+		link: "NDA, contact me for more info",
+		tech: ["Python", "PyTorch", "ROCm", "C++"],
 	},
 ];
 export default ProjectData;

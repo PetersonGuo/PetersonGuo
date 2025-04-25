@@ -119,8 +119,9 @@ button {
 	right: 100%;
 	top: 0;
 	z-index: -1;
-	transition: all 0.15s ease-in;
+	border-radius: .9rem;
 	-webkit-transition: all 0.15s ease-in;
+	transition: all 0.15s ease-in;
 }
 
 .slide-fill:hover::before {

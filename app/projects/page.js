@@ -13,7 +13,7 @@ export default function Page() {
         if (hoveredIndex !== null) {
             timer = setTimeout(() => {
                 setFlippedIndex(hoveredIndex);
-            }, 300);
+            }, 100);
         }
         return () => clearTimeout(timer);
     }, [hoveredIndex]);
