@@ -106,32 +106,33 @@ export default function TesseractViewer() {
 			return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 		}
 
-		if (isMobile()) {
-			window.addEventListener('touchstart', function handleFirstTouch() {
-				console.log("Mobile device detected, attempting deviceorientation");
-				if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-					console.log("Requesting DeviceMotionEvent permission (iOS 13+)");
-					DeviceMotionEvent.requestPermission()
-					.then(response => {
-						if (response === 'granted') {
-							window.addEventListener('deviceorientation', handleOrientation);
-						} else {
-							console.warn("Permission denied, falling back to mousemove");
-							window.addEventListener('mousemove', handleMouseMove);
-							window.addEventListener("wheel", handleWheel, { passive: true });
-						}
-					})
-					.catch(err => {
-						console.error("DeviceMotionEvent error:", err);
+		function handleFirstTouch() {
+			if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+				console.log("Requesting DeviceMotionEvent permission (iOS 13+)");
+				DeviceMotionEvent.requestPermission()
+				.then(response => {
+					if (response === 'granted') {
+						window.addEventListener('deviceorientation', handleOrientation);
+					} else {
+						console.warn("Permission denied, falling back to mousemove");
 						window.addEventListener('mousemove', handleMouseMove);
 						window.addEventListener("wheel", handleWheel, { passive: true });
-					});
-				} else {
-					// Android or older browsers
-					window.addEventListener('deviceorientation', handleOrientation);
-				}
-				window.removeEventListener('touchstart', handleFirstTouch);
-			});
+					}
+				})
+				.catch(err => {
+					console.error("DeviceMotionEvent error:", err);
+					window.addEventListener('mousemove', handleMouseMove);
+					window.addEventListener("wheel", handleWheel, { passive: true });
+				});
+			} else {
+				// Android or older browsers
+				window.addEventListener('deviceorientation', handleOrientation);
+			}
+			window.removeEventListener('touchend', handleFirstTouch);
+		}
+
+		if (isMobile()) {
+			window.addEventListener('touchend', handleFirstTouch);
 		} else {
 			window.addEventListener('mousemove', handleMouseMove);
 			window.addEventListener("wheel", handleWheel, { passive: true });
@@ -141,11 +142,9 @@ export default function TesseractViewer() {
 			renderer.setAnimationLoop(null);
 			renderer.dispose();
 			window.removeEventListener("wheel", handleWheel);
-			if (isMobile()) {
-				window.removeEventListener('deviceorientation', handleMouseMove);
-			} else {
-				window.removeEventListener("mousemove", handleMouseMove);
-			}
+			window.removeEventListener('touchend', handleFirstTouch);
+			window.removeEventListener('deviceorientation', handleMouseMove);
+			window.removeEventListener("mousemove", handleMouseMove);
 		};
 	}, []);
 
