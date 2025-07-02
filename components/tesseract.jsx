@@ -11,7 +11,6 @@ export default function TesseractViewer() {
 	useEffect(() => {
 		if (!canvasRef.current) return;
 
-		// ─ build scene, camera, renderer ─
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
 			75,
@@ -22,7 +21,6 @@ export default function TesseractViewer() {
 		const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
-		// ─ create your tesseract edges ─
 		const material = new THREE.LineBasicMaterial({ color: "#bfbfbf" });
 		const cubeVerts = [
 			[-1, -1, -1],
@@ -63,7 +61,6 @@ export default function TesseractViewer() {
 			scene.add(new THREE.Line(geom, material));
 		});
 
-		// ─ animation loop: always re-read refs ─
 		renderer.setAnimationLoop(() => {
 			const r = radiusRef.current;
 			const φ = phiRef.current;
@@ -77,11 +74,25 @@ export default function TesseractViewer() {
 			renderer.render(scene, camera);
 		});
 
-		// ─ handlers just update refs ─
+		function rotateTesseractFromGyro(alpha, beta, gamma) {
+			phiRef.current   = (alpha / 360) * 2 * Math.PI;
+			thetaRef.current = (beta / 180) * Math.PI;
+			radiusRef.current = Math.max(
+				1,
+				Math.min(10, radiusRef.current - gamma * 0.02)
+			);
+		}
+
+		function handleOrientation(event) {
+			const { alpha, beta, gamma } = event;
+			rotateTesseractFromGyro(alpha, beta, gamma);
+		}
+
 		const handleMouseMove = (e) => {
 			phiRef.current = (e.clientX / window.innerWidth) * Math.PI * 2;
 			thetaRef.current = (e.clientY / window.innerHeight) * Math.PI;
 		};
+
 		const handleWheel = (e) => {
 			// zoom in/out
 			radiusRef.current = Math.max(
@@ -90,14 +101,55 @@ export default function TesseractViewer() {
 			);
 		};
 
-		window.addEventListener("mousemove", handleMouseMove);
-		window.addEventListener("wheel", handleWheel, { passive: true });
+		function isMobile() {
+			console.log(navigator.userAgent);
+			return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+		}
+
+		function enableGyro() {
+			console.log("Mobile device detected, attempting deviceorientation");
+			if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+				console.log("Requesting DeviceMotionEvent permission (iOS 13+)");
+				DeviceMotionEvent.requestPermission()
+				.then(response => {
+					if (response === 'granted') {
+						window.addEventListener('deviceorientation', handleOrientation);
+					} else {
+						console.warn("Permission denied, falling back to mousemove");
+						window.addEventListener('mousemove', handleMouseMove);
+						window.addEventListener("wheel", handleWheel, { passive: true });
+					}
+				})
+				.catch(err => {
+					console.error("DeviceMotionEvent error:", err);
+					window.addEventListener('mousemove', handleMouseMove);
+					window.addEventListener("wheel", handleWheel, { passive: true });
+				});
+			} else {
+				// Android or older browsers
+				window.addEventListener('deviceorientation', handleOrientation);
+			}
+		}
+
+		if (isMobile()) {
+			window.addEventListener('touchstart', function handleFirstTouch() {
+				enableGyro();
+				window.removeEventListener('touchstart', handleFirstTouch);
+			});
+		} else {
+			window.addEventListener('mousemove', handleMouseMove);
+			window.addEventListener("wheel", handleWheel, { passive: true });
+		}
 
 		return () => {
 			renderer.setAnimationLoop(null);
 			renderer.dispose();
-			window.removeEventListener("mousemove", handleMouseMove);
 			window.removeEventListener("wheel", handleWheel);
+			if (isMobile()) {
+				window.removeEventListener('deviceorientation', handleMouseMove);
+			} else {
+				window.removeEventListener("mousemove", handleMouseMove);
+			}
 		};
 	}, []);
 
