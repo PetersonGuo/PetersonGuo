@@ -79,7 +79,7 @@ export default function TesseractViewer() {
 			thetaRef.current = (beta / 180) * Math.PI;
 			radiusRef.current = Math.max(
 				1,
-				Math.min(10, radiusRef.current - gamma * 0.02)
+				Math.min(10, radiusRef.current - gamma * 0.002)
 			);
 		}
 
@@ -102,13 +102,11 @@ export default function TesseractViewer() {
 		};
 
 		function isMobile() {
-			console.log(navigator.userAgent);
 			return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 		}
 
 		function handleFirstTouch() {
 			if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-				console.log("Requesting DeviceMotionEvent permission (iOS 13+)");
 				DeviceMotionEvent.requestPermission()
 				.then(response => {
 					if (response === 'granted') {
