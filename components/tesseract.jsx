@@ -79,7 +79,7 @@ export default function TesseractViewer() {
 			thetaRef.current = (beta / 180) * Math.PI;
 			radiusRef.current = Math.max(
 				1,
-				Math.min(10, radiusRef.current - gamma * 0.002)
+				Math.min(10, radiusRef.current - gamma * 0.005)
 			);
 		}
 
