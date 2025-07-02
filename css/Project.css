@@ -155,3 +155,15 @@
     width: 60vw;
     height: 70vh;
 }
+
+@media screen and (max-width: 768px) {
+    .box .content h2 {
+        padding: 10px 20px;
+        font-size: small;
+    }
+
+    .box {
+        margin-right: 10px !important;
+        width: 30vw !important;
+    }
+}

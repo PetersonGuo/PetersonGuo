@@ -7,11 +7,17 @@ export default function TesseractViewer() {
 	const radiusRef = useRef(5);
 	const phiRef = useRef(0);
 	const thetaRef = useRef(Math.PI / 2);
+	const initialRef = useRef({
+		beta: null,
+		phi: null,
+		theta: null,
+		radius: null,
+	});
+	const smoothedRadius = useRef(1);
 
 	useEffect(() => {
 		if (!canvasRef.current) return;
 
-		// ─ build scene, camera, renderer ─
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
 			75,
@@ -22,7 +28,6 @@ export default function TesseractViewer() {
 		const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
-		// ─ create your tesseract edges ─
 		const material = new THREE.LineBasicMaterial({ color: "#bfbfbf" });
 		const cubeVerts = [
 			[-1, -1, -1],
@@ -63,7 +68,6 @@ export default function TesseractViewer() {
 			scene.add(new THREE.Line(geom, material));
 		});
 
-		// ─ animation loop: always re-read refs ─
 		renderer.setAnimationLoop(() => {
 			const r = radiusRef.current;
 			const φ = phiRef.current;
@@ -77,11 +81,61 @@ export default function TesseractViewer() {
 			renderer.render(scene, camera);
 		});
 
-		// ─ handlers just update refs ─
+		function rotateTesseractFromGyro(alpha, beta, gamma) {
+			// On first call, capture initial pose
+			if (initialRef.current.beta === null) {
+				initialRef.current.beta   = beta;
+				initialRef.current.phi    = phiRef.current;
+				initialRef.current.theta  = thetaRef.current;
+				initialRef.current.radius = radiusRef.current;
+				smoothedRadius.current    = radiusRef.current;
+				return;
+			}
+
+			// Compute signed tilt delta from start
+			const delta = beta - initialRef.current.beta;
+			const maxTilt = 60; // degrees of tilt
+
+			// Normalize to [-1, +1]
+			const normalized = Math.max(-1, Math.min(1, delta / maxTilt));
+
+			// Define bounds
+			const minR = 0.5;
+			const maxR = 2.0;
+			const baseR = initialRef.current.radius;
+
+			// Map normalized to radius:
+			//    normalized > 0 to forward tilt to zoom in (radius decrease toward minR)
+			//    normalized < 0 to backward tilt to zoom out (radius increase toward maxR)
+			let targetRadius;
+			if (normalized >= 0) {
+				// interpolate from baseR → minR
+				targetRadius = baseR - normalized * (baseR - minR);
+			} else {
+				// interpolate from baseR → maxR
+				targetRadius = baseR + (-normalized) * (maxR - baseR);
+			}
+
+			// Smooth it
+			const smoothing = 0.1;
+			smoothedRadius.current += (targetRadius - smoothedRadius.current) * smoothing;
+
+			// Update camera angles & radius
+			phiRef.current   = (gamma / 90) * 2 * Math.PI;
+			thetaRef.current = (beta  / 60) * Math.PI;
+			radiusRef.current = smoothedRadius.current;
+		}
+
+		function handleOrientation(event) {
+			const { alpha, beta, gamma } = event;
+			rotateTesseractFromGyro(alpha, beta, gamma);
+		}
+
 		const handleMouseMove = (e) => {
 			phiRef.current = (e.clientX / window.innerWidth) * Math.PI * 2;
 			thetaRef.current = (e.clientY / window.innerHeight) * Math.PI;
 		};
+
 		const handleWheel = (e) => {
 			// zoom in/out
 			radiusRef.current = Math.max(
@@ -90,14 +144,48 @@ export default function TesseractViewer() {
 			);
 		};
 
-		window.addEventListener("mousemove", handleMouseMove);
-		window.addEventListener("wheel", handleWheel, { passive: true });
+		function isMobile() {
+			return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+		}
+
+		function handleFirstTouch() {
+			if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+				DeviceMotionEvent.requestPermission()
+				.then(response => {
+					if (response === 'granted') {
+						window.addEventListener('deviceorientation', handleOrientation);
+					} else {
+						console.warn("Permission denied, falling back to mousemove");
+						window.addEventListener('mousemove', handleMouseMove);
+						window.addEventListener("wheel", handleWheel, { passive: true });
+					}
+				})
+				.catch(err => {
+					console.error("DeviceMotionEvent error:", err);
+					window.addEventListener('mousemove', handleMouseMove);
+					window.addEventListener("wheel", handleWheel, { passive: true });
+				});
+			} else {
+				// Android or older browsers
+				window.addEventListener('deviceorientation', handleOrientation);
+			}
+			window.removeEventListener('touchend', handleFirstTouch);
+		}
+
+		if (isMobile()) {
+			window.addEventListener('touchend', handleFirstTouch);
+		} else {
+			window.addEventListener('mousemove', handleMouseMove);
+			window.addEventListener("wheel", handleWheel, { passive: true });
+		}
 
 		return () => {
 			renderer.setAnimationLoop(null);
 			renderer.dispose();
-			window.removeEventListener("mousemove", handleMouseMove);
 			window.removeEventListener("wheel", handleWheel);
+			window.removeEventListener('touchend', handleFirstTouch);
+			window.removeEventListener('deviceorientation', handleMouseMove);
+			window.removeEventListener("mousemove", handleMouseMove);
 		};
 	}, []);
 
