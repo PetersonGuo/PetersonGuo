@@ -75,11 +75,11 @@ export default function TesseractViewer() {
 		});
 
 		function rotateTesseractFromGyro(alpha, beta, gamma) {
-			phiRef.current   = (alpha / 360) * 2 * Math.PI;
-			thetaRef.current = (beta / 180) * Math.PI;
+			phiRef.current   = (gamma / 90) * 2 * Math.PI;
+			thetaRef.current = (beta / 60) * Math.PI;
 			radiusRef.current = Math.max(
 				1,
-				Math.min(10, radiusRef.current - gamma * 0.01)
+				Math.min(10, radiusRef.current - alpha * 0.01)
 			);
 		}
 
