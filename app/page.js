@@ -67,7 +67,7 @@ export default function Home() {
                         <WorkContainer />
                     </DynamicTracingBeam>
                 </section>
-                <section className={"w-full flex flex-col items-center"}>
+                <section className={"w-full flex flex-col items-center"} href="#projects">
                     <h1>
                         Projects
                     </h1>
