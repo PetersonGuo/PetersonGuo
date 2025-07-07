@@ -34,34 +34,6 @@ export default function Nav() {
 	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
-		async function getIP() {
-			try {
-				const ipReq = await fetch("https://jsonip.com/", {
-					mode: "cors",
-				});
-				const ip = await ipReq.json();
-				const req = await fetch("/api/ip", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ip: ip.ip, path: pathname, addtional_json: JSON.stringify({ userAgent: window.navigator.userAgent })}),
-				});
-				const reqData = await req.json();
-			} catch (err) {
-				const req = await fetch("/api/ip", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ IPv4: "Error", IPv6: "Error" }),
-				});
-			}
-		}
-		getIP();
-	}, [pathname]);
-
-	useEffect(() => {
 		setIsMounted(true);
 		const updateMobile = () => setMobile(window.innerWidth < 768);
 		updateMobile();
