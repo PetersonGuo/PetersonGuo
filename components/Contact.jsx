@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import Social from "./Social";
 import "@/css/Contact.css";
@@ -43,15 +43,12 @@ export default function Contact() {
 			className="py-8 md:py-16 md:px-20 px-5 w-full bg-[var(--secondary-bg)] rounded-2xl"
 			id="contact"
 		>
-			<div className={"grid grid-cols-3 place-items-center mb-6"}>
+			<div className={"grid grid-cols-2 place-items-center mb-6"}>
 				<Social social="linkedin">
 					<FaLinkedin size={30} />
 				</Social>
-				<Social social="instagram">
-					<FaInstagram size={30} />
-				</Social>
-				<Social social="facebook">
-					<FaFacebook size={30} />
+				<Social social="github">
+					<FaGithub size={30} />
 				</Social>
 			</div>
 			<div className={"border-b-2 border-gray-300 mb-6"}></div>

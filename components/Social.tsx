@@ -26,16 +26,6 @@ const socials: Record<string, SocialInfo> = {
 		link: "https://github.com/PetersonGuo",
 		alt: "github logo",
 	},
-	instagram: {
-		src: "/logos/Instagram.webp",
-		link: "https://www.instagram.com/petersonguo/",
-		alt: "instagram logo",
-	},
-	facebook: {
-		src: "/logos/Facebook.png",
-		link: "https://www.facebook.com/petersonguo1",
-		alt: "facebook logo",
-	},
 	linkedin: {
 		src: "/logos/Linkedin.png",
 		link: "https://www.linkedin.com/in/petersonguo/",
