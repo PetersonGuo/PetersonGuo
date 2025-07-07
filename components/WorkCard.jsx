@@ -55,7 +55,7 @@ export default function WorkCard({ children, workData }) {
 						/>
 					</div>
 					<div>
-						<h4 className="text-lg font-bold">{workData.title}</h4>
+						<h4 className="text-lg font-bold">{workData.company} - {workData.title}</h4>
 						<div className="md:flex">
 							<p className="lg:text-md text-sm font-normal">
 								{`${workData.start.toLocaleDateString("en-US", {
