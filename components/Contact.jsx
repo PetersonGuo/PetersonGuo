@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import Social from "./Social";
 import "@/css/Contact.css";
@@ -11,10 +11,11 @@ export default function Contact() {
 	const email = useRef();
 	const subject = useRef();
 	const message = useRef();
-	function submit(e) {
+
+	async function submit(e) {
 		e.preventDefault();
 
-		fetch("/api/contact", {
+		const res = await fetch("/api/contact", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -24,18 +25,13 @@ export default function Contact() {
 				subject: subject.current.value,
 				message: message.current.value,
 			}),
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				if (res.error) {
-					alert("An error occurred. Please try again.");
-				} else {
-					alert("Email sent successfully");
-				}
-			})
-			.catch((err) => {
-				alert("An error occurred. Please try again.");
-			});
+		});
+		if (!res.ok) {
+			alert("An error occurred. Please try again.");
+			console.error("Error:", res.statusText);
+			return;
+		}
+		alert("Email sent successfully");
 	}
 
 	return (
