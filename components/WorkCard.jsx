@@ -2,96 +2,97 @@
 import Image from "next/image";
 import { MdOutlineChevronRight } from "react-icons/md";
 import { useState } from "react";
+import Link from "next/link";
 
 function dateDifference(start, end) {
-	// Calculate the differences in years, months, and days
-	let years = end.getFullYear() - start.getFullYear();
-	let months = end.getMonth() - start.getMonth() + 1;
-	let days = end.getDate() - start.getDate();
+  // Calculate the differences in years, months, and days
+  let years = end.getFullYear() - start.getFullYear();
+  let months = end.getMonth() - start.getMonth() + 1;
+  let days = end.getDate() - start.getDate();
 
-	// Adjust months and years if necessary
-	if (days < 0) {
-		months -= 1;
-		days += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
-	}
+  // Adjust months and years if necessary
+  if (days < 0) {
+    months -= 1;
+    days += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+  }
 
-	if (months < 0) {
-		years -= 1;
-		months += 12;
-	}
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
 
-	// Construct the elapsed time string
-	let elapsedTime = [];
+  // Construct the elapsed time string
+  let elapsedTime = [];
 
-	if (years > 0) {
-		elapsedTime.push(`${years} yr${years > 1 ? "s" : ""}`);
-	}
+  if (years > 0) {
+    elapsedTime.push(`${years} yr${years > 1 ? "s" : ""}`);
+  }
 
-	if (months > 0) {
-		elapsedTime.push(`${months} mo${months > 1 ? "s" : ""}`);
-	}
+  if (months > 0) {
+    elapsedTime.push(`${months} mo${months > 1 ? "s" : ""}`);
+  }
 
-	return elapsedTime.join(" ");
+  return elapsedTime.join(" ");
 }
 
 export default function WorkCard({ children, workData }) {
-	const [open, setOpen] = useState(false);
-	return (
-		<div className="bg-[#1E1E1E] px-5 py-3 rounded-xl w-full space-y-2">
-			<div
-				className="flex flex-row items-center justify-between cursor-pointer"
-				onClick={() => {
-					setOpen(!open);
-				}}
-			>
-				<div className="flex flex-row items-center space-x-5">
-					<div className="bg-white rounded-xl p-1">
-						<Image
-							alt={`${workData.company} ${workData.title}`}
-							className=""
-							src={workData.image}
-							width={40}
-							height={40}
-						/>
-					</div>
-					<div>
-						<h4 className="text-lg font-bold">{workData.company} - {workData.title}</h4>
-						<div className="md:flex">
-							<p className="lg:text-md text-sm font-normal">
-								{`${workData.start.toLocaleDateString("en-US", {
-									year: "numeric",
-									month: "short",
-								})} - ${workData.end.toLocaleDateString(
-									"en-US",
-									{
-										year: "numeric",
-										month: "short",
-									}
-								)}`}{" "}
-								&#x2022;
-							</p>
-							<p className="text-sm ms-1">
-								{dateDifference(workData.start, workData.end)}
-							</p>
-						</div>
-					</div>
-				</div>
-				<MdOutlineChevronRight
-					size={40}
-					className={`ml-auto mr-0 transition-all ease-in-out ${
-						open ? "rotate-90" : ""
-					}`}
-				/>
-			</div>
-			<ul className="text-sm list-disc px-8">
-				{open && workData.description.map((item, i) => {
-					return (
-						<li key={`work_description_${i}`} className="">
-							<p className="text-base font-normal">{item}</p>
-						</li>
-					);
-				})}
-			</ul>
-		</div>
-	);
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="bg-[#1E1E1E] px-5 py-3 rounded-xl w-full space-y-2">
+      <div
+        className="flex flex-row items-center justify-between cursor-pointer"
+        onClick={() => {
+          setOpen(!open);
+        }}
+      >
+        <div className="flex flex-row items-center space-x-5">
+          <Link href={workData.link || ""} target="_blank">
+            <div className="bg-white rounded-xl p-1" onClick={() => {}}>
+              <Image
+                alt={`${workData.company} ${workData.title}`}
+                className="w-full h-full object-contain p-2"
+                src={workData.image}
+                width={40}
+                height={40}
+              />
+            </div>
+          </Link>
+          <div>
+            <h4 className="text-lg font-bold">{workData.title}</h4>
+            <div className="md:flex">
+              <p className="lg:text-md text-sm font-normal">
+                {`${workData.start.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                })} - ${workData.end.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                })}`}{" "}
+                &#x2022;
+              </p>
+              <p className="text-sm ms-1">
+                {dateDifference(workData.start, workData.end)}
+              </p>
+            </div>
+          </div>
+        </div>
+        <MdOutlineChevronRight
+          size={40}
+          className={`ml-auto mr-0 transition-all ease-in-out ${
+            open ? "rotate-90" : ""
+          }`}
+        />
+      </div>
+      <ul className="text-sm list-disc px-8">
+        {open &&
+          workData.description.map((item, i) => {
+            return (
+              <li key={`work_description_${i}`} className="">
+                <p className="text-base font-normal">{item}</p>
+              </li>
+            );
+          })}
+      </ul>
+    </div>
+  );
 }

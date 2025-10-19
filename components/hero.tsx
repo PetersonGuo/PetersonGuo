@@ -27,9 +27,9 @@ export default function Hero({
 						<p className="text-5xl md:text-7xl font-normal md:pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
 							{title}
 						</p>
-						<p className="text-md md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
+						{/* <p className="text-md md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
 							{description}
-						</p>
+						</p> */}
 						<div className="absolute bottom-[-70%] w-full flex items-center justify-center bg-red-transparent space-x-2">
 							<Social social="github">
 								<FaGithub size={30} />

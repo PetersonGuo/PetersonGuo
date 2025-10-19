@@ -31,7 +31,7 @@ export default function Home() {
                 </section>
                 <section className="!mt-0 md:w-[50vw] px-5 flex flex-col space-y-5 pt-10" id="about">
                     <p>
-                        {"Hi there! I'm Peterson Guo, an Electrical Engineer at the University of Waterloo. I focus on low level programming, embedded systems, and digital design."}
+                        {"Hi there! I'm Peterson Guo, an Electrical Engineer at the University of Waterloo. I focus on systems programming, embedded systems, and quantitative finance."}
                     </p>
                     <div>
                         <Link href="#contact" className="border-white border overflow-hidden rounded-2xl px-5 py-2 relative ease-in-out slide-fill hover:text-black">Contact Me</Link>
@@ -45,16 +45,16 @@ export default function Home() {
                         Education
                     </h1>
                     <div className="flex flex-row items-center rounded-xl bg-[var(--secondary-bg)] p-4 space-x-5 md:w-[30vw] mx-auto justify-center">
-                        <Image src="/waterloo.png" alt="University of Waterloo" width={40} height={40} className="inline-block" />
+                        <Image src="https://upload.wikimedia.org/wikipedia/en/6/6e/University_of_Waterloo_seal.svg" alt="University of Waterloo" width={80} height={80} className="inline-block" />
                         <div>
                             <h3 className='m-0 p-0'>
                                 {"University of Waterloo"}
                             </h3>
                             <p className='m-0 p-0 text-sm text-gray-300'>
-                                {"BASc in Electrical Engineering, Honours, Co-op"}
+                                {"BASc. in Electrical Engineering, Honours"}
                             </p>
                             <p className="m-0 p-0 text-sm text-gray-300">
-                                2023-2028
+                                Sep. 2023 - Apr. 2028
                             </p>
                         </div>
                     </div>

@@ -22,12 +22,12 @@ interface SocialProps {
 // Define the socials object outside the component to avoid re-declaration on each render
 const socials: Record<string, SocialInfo> = {
 	github: {
-		src: "/logos/GitHub.png",
+		src: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
 		link: "https://github.com/PetersonGuo",
 		alt: "github logo",
 	},
 	linkedin: {
-		src: "/logos/Linkedin.png",
+		src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png",
 		link: "https://www.linkedin.com/in/petersonguo/",
 		alt: "linkedin logo",
 	},
