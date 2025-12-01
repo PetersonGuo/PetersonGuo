@@ -1,5 +1,5 @@
 "use server";
-import { sql } from "@vercel/postgres";
+import { neon } from '@neondatabase/serverless';
 import { NextResponse } from 'next/server';
 const postmark = require('postmark');
 
@@ -9,8 +9,9 @@ export async function POST(req) {
     if (!data.email || !data.subject || !data.message) {
         return NextResponse.json({ success: false, error: "Missing required fields" });
     }
+    const sql = neon(process.env.DATABASE_URL);
     const sql_ =
-            await sql`INSERT INTO contact_logging (datetime, email, subject, message) VALUES (NOW(), ${data.email}, ${data.subject}, ${data.message})`;
+            await sql`INSERT INTO contact_logging (sent_datetime, email, subject, message) VALUES (${new Date()}, ${data.email}, ${data.subject}, ${data.message})`;
     if (sql_.rowCount !== 1) {
         error += "Database insertion failed";
     }
