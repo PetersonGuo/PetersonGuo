@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.4",
+    "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.1.5",
     "@neondatabase/serverless": "^1.0.2",
     "@splidejs/react-splide": "^0.7.12",
