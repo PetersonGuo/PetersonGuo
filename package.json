@@ -18,7 +18,7 @@
     "@vercel/postgres": "^0.9.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.30",
-    "next": "15.4.10",
+    "next": "15.5.9",
     "nodemailer": "^7.0.11",
     "postmark": "^4.0.5",
     "react": "^18.3.1",
