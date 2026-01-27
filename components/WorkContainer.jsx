@@ -49,7 +49,7 @@ const WorkData = [
 	{
 		title: "Security Developer",
 		company: "eSentire",
-		image: "https://georgian.io/wp-content/uploads/2017/07/eSentire_Logo_2021_Blue.png",
+		image: "https://s3.ca-central-1.amazonaws.com/esentire-dot-com-assets/assets/eSentire_emblem_512x512.jpg",
 		start: new Date("01/01/2024"),
 		end: new Date("05/01/2024"),
 		description: [
