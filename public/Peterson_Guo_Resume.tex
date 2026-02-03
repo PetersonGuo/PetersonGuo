@@ -1,0 +1,220 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage[pro]{fontawesome5}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\geometry{
+  left=0.35in,   % Set the left margin
+  right=0.35in,  % Set the right margin to be the same as the left margin
+  top=0.25in,    % Optional: Adjust the top margin
+  bottom=0.25in, % Optional: Adjust the bottom margin
+  headheight=0in, % Adjust the head height
+  headsep=0in,    % Adjust the separation for the header
+}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-16pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% Contact info (override at build time if needed)
+\providecommand{\ResumePhone}{}
+\providecommand{\ResumeEmail}{}
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+    \linespread{0.85}
+  \item\small{
+    {#1}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-3pt}
+    \item
+    \begin{tabular*}{0.98\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+      \vspace{-3pt} \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\footnotesize #4} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth\vspace{-6pt}}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-3pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.13in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]\vspace{-1pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+
+%-------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+ 
+%----------HEADING----------
+\begin{center}
+    \textbf{\huge \scshape Peterson Guo } \\ \vspace{2pt}
+  \ifx\ResumePhone\empty\else
+  \href{tel:\ResumePhone}{\ResumePhone}
+  \fi
+  \href{mailto:\ResumeEmail}{{\ResumeEmail}}
+    \href{https://petersonguo.com}{petersonguo.com} $|$
+    \href{https://www.linkedin.com/in/PetersonGuo}{\faIcon{linkedin} PetersonGuo} $|$
+    \href{https://github.com/PetersonGuo}{\faIcon{github} PetersonGuo}
+\end{center}
+
+%-----------EDUCATION-----------
+\vspace{-12pt}
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Waterloo}{Waterloo, ON}
+      {BASc. in Honours Electrical Engineering}{09/2023 - 04/2028}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+
+%-----------PROGRAMMING SKILLS-----------
+\vspace{-5pt}
+\section{Skills}
+ \begin{itemize}[leftmargin=0.08in, label={}]
+    \vspace{-3pt}\setlength\itemsep{-6pt}
+    \item{\small{
+        \textbf{Languages}{: C/C++, Python, MLIR, Bash}
+     }}
+    \item{\small{
+        \textbf{Software}{: LLVM, CUDA, ROCm, Pytorch, Git}
+    }}
+    \item{\small{
+        \textbf{Others}{: Compilers, GPU Drivers, Linux, Operating Systems, Kernel Debugging, LLMs}
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\vspace{-10pt}
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Deep Learning Library Performance Software Engineer Intern}{05/2026 -- 09/2026}
+      {Nvidia}{Santa Clara, CA}
+      \resumeItemListStart
+        \resumeItem{Incoming}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Model Performance Engineer Intern}{01/2026 -- 5/2026}
+      {Baseten}{San Francisco, CA}
+      \resumeItemListStart
+        \resumeItem{Working on improving latency and throughput of ML models}
+       % \resumeItem{Interview problem setter}
+       %  \resumeItem{Optimized a transformer model's inference pipeline, delivering higher throughput and lower latency via batching, kernel fusion, and runtime scheduling on top of existing optimizations.}
+       %  \resumeItem{Built and owned a privacy-preserving LLM request hashing and replay system, enabling real-time traffic capture and deterministic workload re-simulation for performance testing and capacity planning.}
+       %  \resumeItem{Improved embeddings latency}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Systems Software Engineer Intern}{05/2025 -- 12/2025}
+      {Nvidia}{Toronto, ON $\cdot$ Santa Clara, CA}
+      \resumeItemListStart
+        \resumeItem{Built and owned an internal \textbf{Python–C++} profiler for CUTLASS latency decomposition with up to \textbf{21x} lower overhead than torch.profiler and adopted by \textbf{15+} systems developers}
+        \resumeItem{Reduced end-to-end \textbf{JIT} compilation time by \textbf{20\%} by designing a deterministic Merkle-tree hashing system \textbf{5×} faster than SHA256 for multi-GB binaries, improving kernel generation \textbf{latency} and iteration speed}
+        \resumeItem{Reduced kernel launch overhead by \textbf{60\%} by  eliminating \textbf{Python$\rightarrow$C++$\rightarrow$CUDA} dispatch hotspots, achieving performance within \textbf{10\%} of tvm-ffi and over \textbf{2x} faster than Triton}
+        \resumeItem{Core contributor of an \textbf{MLIR}-based \textbf{CUDA} dialect, adding \textbf{20+} ops and lowering patterns to enable \textbf{Python} DSL access to graphs, streams, async memops, and PDL}
+        \resumeItem{Migrated low latency \textbf{Blackwell}-optimized kernels to CuTe DSL, enabling dynamic JIT integration and cross-architecture kernel specialization}
+        \resumeItem{Delivered up to \textbf{2.67×} faster \textbf{LLM inference} at a pre-acquisition startup by integrating custom kernels and improving fusion heuristics of a \textbf{Python}-based \textbf{ML Graph}-compiler}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Software Engineer Intern}{09/2024 -- 12/2024}
+      {AMD}{Markham, ON}
+      \resumeItemListStart
+          \resumeItem{Delivered AMD’s most stable GPU software release, by resolving \textbf{25+} kernel-level crashes, hangs, and performance regressions, using crash dumps, \textbf{firmware} logs, and \textbf{register-level} analysis}
+        \resumeItem{Shaped display-pipeline research, shown by my \textbf{ML upscaling} PoC being adopted and later expanded into an internal technical conference paper by my successor, by building a lightweight \textbf{PyTorch}/\textbf{ROCm} prototype}
+        \resumeItem{Strengthened display-pipeline stability on next-gen AMD GPUs/APUs by building \textbf{C/C++ kernel} drivers, ensuring robust framebuffer$\rightarrow$display behavior for Ryzen AI and Radeon hardware}
+        \resumeItem{Improved bring-up reliability by fixing  \textbf{5+} Microsoft OS–GPU issues, analyzing \textbf{firmware}/memory dumps and eliminating early-boot bottlenecks}
+        \resumeItem{Enhanced \textbf{Linux} display pipeline correctness, by resolving defects in color calibration, frame-sync logic, DSC decoding, and corruption, contributing patches to AMD’s \textbf{open-source} Linux display driver}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Security Developer Co-op}{01/2024 -- 5/2024}
+      {eSentire}{Waterloo, ON}
+      \resumeItemListStart
+        \resumeItem{Performed \textbf{LLM security research} on production backends, analyzing attack surfaces including prompt injection, data exfiltration, and privilege escalation in deployed pipelines}
+        \resumeItem{Cut \textbf{ingestion latency} by \textbf{50\%+} by \textbf{optimizing} JSON parsing and Snowflake execution paths, reducing pipeline stalls in \textbf{real-time analytics}}
+        \resumeItem{Improved log-processing throughput by \textbf{4×} through \textbf{algorithmic optimizations} in \textbf{Python}’s data pipeline}
+        \resumeItem{Built an AI threat analytics dashboard end-to-end (Snowflake, Python, Vue3) used by enterprise clients to investigate live security events, earning executive visibility}
+        \resumeItem{Strengthened analyst workflows by adding packet-processing and correctness enhancements to an open-source PCAP scrubber}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading{\textbf{Chess Bot} $|$ PyTorch, Python, C++, CUDA, Alpha Beta Pruning, NNUE}{}
+        \resumeItemListStart
+            \resumeItem{Built a \textbf{GPU-accelerated} chess engine using custom \textbf{CUDA} kernels for evaluation/search, achieving major speedups over CPU baselines}
+        \resumeItemListEnd
+        
+        % \resumeProjectHeading
+        %   {\textbf{Bionic Evo} $|$ C/C++, Assembly, Neural Networks, TensorFlow, CUDA, STM32}{}
+        %   \resumeItemListStart
+        %     \resumeItem{Engineered a humanoid arm prototype for amputees by utilizing \textbf{STM32} and \textbf{EMG} sensors, integrating \textbf{pattern recognition} to achieve \textbf{precise gesture classification} and seamless arm control}
+        %   \resumeItemListEnd
+
+        \resumeProjectHeading{\textbf{InvestIQ} $|$ Python, C++, IBKR API, CUDA}{}
+        \resumeItemListStart
+            \resumeItem{Built a low-latency, event driven market data pipeline aggregating price, event, and sentiment feeds, enabling deterministic backtesting and feature generation for pairs trading and signal research.}
+        \resumeItemListEnd
+
+        \resumeProjectHeading{\textbf{ML Upscaling} $|$ ROCm, CUDA, Machine Learning, CNNs, PyTorch, Python}{}
+        \resumeItemListStart
+            \resumeItem{Prototyped a real-time \textbf{ML} upscaling model for \textbf{AMD graphics cards}, leveraging \textbf{transformer} based \textbf{super sampling} to enhance visual fidelity and performance for potential display pipeline adoption}
+        \resumeItemListEnd
+
+    \resumeSubHeadingListEnd   
+     
+\end{document}

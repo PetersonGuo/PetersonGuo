@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/buildResume.js && node scripts/parseResume.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "parse-resume": "node scripts/parseResume.js",
+    "prepare": "husky"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -20,6 +23,7 @@
     "framer-motion": "^11.3.30",
     "next": "15.4.10",
     "nodemailer": "^7.0.11",
+    "pdfjs-dist": "^5.4.624",
     "postmark": "^4.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -36,6 +40,8 @@
     "@types/three": "^0.176.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^9.25.1",
+    "eslint-config-next": "15.4.10",
+    "husky": "^9.1.7",
     "postcss": "^8",
     "tailwindcss": "^3.4.4"
   }

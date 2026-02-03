@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Sanitize resume contact info before committing
+RESUME_TEX="public/Peterson_Guo_Resume.tex"
+
+if git diff --cached --name-only | grep -q "$RESUME_TEX"; then
+  echo "📝 Sanitizing contact info in $RESUME_TEX..."
+  
+  # Replace contact info with empty values
+  sed -i '' 's/\\providecommand{\\ResumePhone}{[^}]*}/\\providecommand{\\ResumePhone}{}/g' "$RESUME_TEX"
+  sed -i '' 's/\\providecommand{\\ResumeEmail}{[^}]*}/\\providecommand{\\ResumeEmail}{}/g' "$RESUME_TEX"
+  
+  # Re-stage the sanitized file
+  git add "$RESUME_TEX"
+  
+  echo "✓ Contact info sanitized"
+fi

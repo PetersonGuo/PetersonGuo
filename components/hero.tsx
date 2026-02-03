@@ -21,7 +21,7 @@ export default function Hero({
 				<div className={cn("sticky w-full top-[40vh]", className)}>
 					<div className="relative">
 						<p className="text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
-							Hi, I'm
+							Hi, I&apos;m
 						</p>
 						<TesseractViewer />
 						<p className="text-5xl md:text-7xl font-normal md:pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
