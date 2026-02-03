@@ -14,11 +14,3 @@ I am a passionate `Software Developer` studying `Electrical Engineering` at the 
 <h2>My Skills</h2>
 
 ![My Skills](https://skillicons.dev/icons?i=cpp,c,py,java,cs,js,ts,nextjs,nodejs,docker,gcp,aws,terraform,fastapi,flask,linux,opencv,tensorflow,mongodb,mysql,postgres,git)
-
-![PetersonGuo's GitHub stats](https://github-readme-stats.vercel.app/api?username=petersonguo&show_icons=true&theme=dark)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
-  <img alt="github-snake" src="github-snake.svg" />
-</picture>
