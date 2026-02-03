@@ -2,22 +2,18 @@
 
 RESUME_TEX="public/Peterson_Guo_Resume.tex"
 
-# Sanitize resume contact info before building
 if git diff --cached --name-only | grep -q "$RESUME_TEX"; then
-  echo "📝 Sanitizing contact info in $RESUME_TEX..."
+  # Build PDF first (with personal contact info in .tex)
+  echo "📝 Building resume PDF..."
+  RESUME_PUBLIC_EMAIL="peterson.guo@uwaterloo.ca" node scripts/buildResume.js
 
-  # Replace contact info with empty values
+  # Then sanitize the .tex file for commit
+  echo "📝 Sanitizing contact info in $RESUME_TEX..."
   sed -i '' 's/\\providecommand{\\ResumePhone}{[^}]*}/\\providecommand{\\ResumePhone}{}/g' "$RESUME_TEX"
   sed -i '' 's/\\providecommand{\\ResumeEmail}{[^}]*}/\\providecommand{\\ResumeEmail}{}/g' "$RESUME_TEX"
 
-  echo "✓ Contact info sanitized"
-  
-  # Build PDF from sanitized resume
-  echo "📝 Building resume PDF..."
-  node scripts/buildResume.js
-  
-  # Stage generated files
+  # Stage both: PDF with contact, .tex without contact
   git add "$RESUME_TEX" public/Peterson_Guo_Resume.pdf
-  
-  echo "✓ Resume built and staged"
+
+  echo "✓ Resume built and contact info sanitized"
 fi
