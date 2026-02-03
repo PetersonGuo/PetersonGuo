@@ -2,8 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const os = require('os');
-const { spawnSync } = require('child_process');
+const https = require('https');
 
 const projectRoot = path.join(__dirname, '..');
 const texPath = path.join(projectRoot, 'public', 'Peterson_Guo_Resume.tex');
@@ -13,87 +12,71 @@ const outputPdf = path.join(outputDir, 'Peterson_Guo_Resume.pdf');
 const publicEmail = process.env.RESUME_PUBLIC_EMAIL || 'peterson.guo@uwaterloo.ca $|$';
 const publicPhone = process.env.RESUME_PUBLIC_PHONE || '';
 
-function isLatexAvailable() {
-	const checkLatexmk = spawnSync('which', ['latexmk'], { stdio: 'ignore' });
-	if (checkLatexmk.status === 0) return true;
-	const checkPdflatex = spawnSync('which', ['pdflatex'], { stdio: 'ignore' });
-	return checkPdflatex.status === 0;
-}
+function compileTexWithApi(texContent) {
+	return new Promise((resolve, reject) => {
+		const url = 'https://texapi.ovh/compile';
 
-function runLatex(command, args) {
-	const result = spawnSync(command, args, { stdio: 'inherit' });
-	if (result.error) {
-		throw result.error;
-	}
-	if (result.status !== 0) {
-		throw new Error(`${command} failed with exit code ${result.status}`);
-	}
-}
-
-function buildResume() {
-	if (!fs.existsSync(texPath)) {
-		throw new Error(`Resume TeX not found at ${texPath}`);
-	}
-
-	// Check if LaTeX is available
-	if (!isLatexAvailable()) {
-		if (process.env.VERCEL || process.env.CI) {
-			console.log('⚠ LaTeX not available in CI/Vercel, skipping PDF generation');
-			return;
-		}
-		throw new Error('LaTeX (latexmk or pdflatex) not found in PATH. Install LaTeX to build the resume.');
-	}
-
-	const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-'));
-	try {
-		const wrapperPath = path.join(tempDir, 'resume_build.tex');
-		const wrapperContent = `\\def\\ResumeEmail{${publicEmail}}\n` +
+		const texWithContact = `\\def\\ResumeEmail{${publicEmail}}\n` +
 			`\\def\\ResumePhone{${publicPhone}}\n` +
-			`\\input{${texPath}}\n`;
+			texContent;
 
-		fs.writeFileSync(wrapperPath, wrapperContent);
+		const postData = texWithContact;
 
-	// Try latexmk first, then pdflatex as a fallback
-	const latexmkArgs = [
-		'-pdf',
-		'-interaction=nonstopmode',
-		'-halt-on-error',
-		`-outdir=${tempDir}`,
-		'-jobname=Peterson_Guo_Resume',
-		wrapperPath,
-	];
+		const options = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'text/plain',
+				'Content-Length': Buffer.byteLength(postData)
+			},
+			timeout: 90000
+		};
 
-	const pdflatexArgs = [
-		'-interaction=nonstopmode',
-		'-halt-on-error',
-		`-output-directory=${tempDir}`,
-		'-jobname=Peterson_Guo_Resume',
-		wrapperPath,
-	];
+		const req = https.request(url, options, (res) => {
+			let data = Buffer.alloc(0);
 
-		try {
-			runLatex('latexmk', latexmkArgs);
-		} catch (error) {
-			// If latexmk fails, try pdflatex
-			runLatex('pdflatex', pdflatexArgs);
-		}
+			res.on('data', (chunk) => {
+				data = Buffer.concat([data, chunk]);
+			});
 
-		const tempPdf = path.join(tempDir, 'Peterson_Guo_Resume.pdf');
-		if (!fs.existsSync(tempPdf)) {
-			throw new Error(`Expected PDF not found at ${tempPdf}`);
-		}
+			res.on('end', () => {
+				if (res.statusCode === 200 && data.length > 0) {
+					// texapi.ovh returns PDF directly
+					fs.writeFileSync(outputPdf, data);
+					resolve(true);
+				} else {
+					reject(new Error(`API returned status ${res.statusCode}`));
+				}
+			});
+		});
 
-		fs.copyFileSync(tempPdf, outputPdf);
+		req.on('error', reject);
+		req.on('timeout', () => {
+			req.destroy();
+			reject(new Error('API request timeout'));
+		});
 
-		console.log(`✓ Generated resume PDF at ${outputPdf}`);
-	} finally {
-		fs.rmSync(tempDir, { recursive: true, force: true });
+		req.write(postData);
+		req.end();
+	});
+}
+
+async function buildResume() {
+	if (!fs.existsSync(texPath)) {
+		throw new Error('Resume TeX not found at ' + texPath);
+	}
+
+	const texContent = fs.readFileSync(texPath, 'utf8');
+
+	try {
+		await compileTexWithApi(texContent);
+		console.log('✓ Generated resume PDF at ' + outputPdf);
+	} catch (error) {
+		console.error('⚠ API compilation failed:', error.message);
+		console.log('✓ Skipping PDF generation (will use local copy if available)');
 	}
 }
 
-try {
-	buildResume();
-} catch (error) {
-	console.error('✗ Error building resume PDF:', error.message);
+buildResume().catch(error => {
+	console.error('✗ Error building resume:', error.message);
 	process.exit(1);
-}
+});
