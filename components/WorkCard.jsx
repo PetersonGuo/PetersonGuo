@@ -47,13 +47,13 @@ export default function WorkCard({ children, workData }) {
       >
         <div className="flex flex-row items-center space-x-5">
           <Link href={workData.link || ""} target="_blank">
-            <div className="bg-white rounded-xl p-1" onClick={() => {}}>
+            <div className="bg-white rounded-xl p-2 aspect-square w-16 h-12 flex items-center justify-center" onClick={() => {}}>
               <Image
                 alt={`${workData.company} ${workData.title}`}
-                className="w-full h-full object-contain p-2"
+                className="max-w-full max-h-full object-contain"
                 src={workData.image}
-                width={40}
-                height={40}
+                width={64}
+                height={64}
               />
             </div>
           </Link>

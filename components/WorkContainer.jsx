@@ -16,7 +16,7 @@ const WorkData = [
 	{
 		title: "Compiler Engineer Intern",
 		company: "Nvidia",
-		image: "https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/2560px-Nvidia_logo.svg.png",
+		image: "https://s3.amazonaws.com/cms.ipressroom.com/219/files/202512/692f50553d6332b453bbc5c2_nvidia-logo-vert-blk/nvidia-logo-vert-blk_thmb.png",
 		start: new Date("05/01/2025"),
 		end: new Date("12/26/2025"),
 		description: [

@@ -12,7 +12,9 @@ const nextConfig = {
       "opencv.org",
       "github.com",
       "georgian.io",
-      "dzh2zima160vx.cloudfront.net"
+      "dzh2zima160vx.cloudfront.net",
+      "s3.amazonaws.com",
+      "s3.ca-central-1.amazonaws.com",
     ],
   },
 };
