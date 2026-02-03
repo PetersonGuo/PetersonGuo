@@ -10,10 +10,8 @@ const texPath = path.join(projectRoot, 'public', 'Peterson_Guo_Resume.tex');
 const outputDir = path.join(projectRoot, 'public');
 const outputPdf = path.join(outputDir, 'Peterson_Guo_Resume.pdf');
 
-const publicEmail = process.env.RESUME_PUBLIC_EMAIL || 'peterson.guo@uwaterloo.ca';
+const publicEmail = process.env.RESUME_PUBLIC_EMAIL || 'peterson.guo@uwaterloo.ca $|$';
 const publicPhone = process.env.RESUME_PUBLIC_PHONE || '';
-const defaultEmail = process.env.RESUME_DEFAULT_EMAIL || 'petersonguo@gmail.com';
-const defaultPhone = process.env.RESUME_DEFAULT_PHONE || '647-606-9486';
 
 function isLatexAvailable() {
 	const checkLatexmk = spawnSync('which', ['latexmk'], { stdio: 'ignore' });
@@ -49,8 +47,8 @@ function buildResume() {
 	const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-'));
 	try {
 		const wrapperPath = path.join(tempDir, 'resume_build.tex');
-		const wrapperContent = `\\def\\ResumeEmail{${publicEmail || defaultEmail}}\n` +
-			`\\def\\ResumePhone{${publicPhone || defaultPhone}}\n` +
+		const wrapperContent = `\\def\\ResumeEmail{${publicEmail}}\n` +
+			`\\def\\ResumePhone{${publicPhone}}\n` +
 			`\\input{${texPath}}\n`;
 
 		fs.writeFileSync(wrapperPath, wrapperContent);
