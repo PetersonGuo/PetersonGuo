@@ -5,7 +5,7 @@ RESUME_TEX="public/Peterson_Guo_Resume.tex"
 if git diff --cached --name-only | grep -q "$RESUME_TEX"; then
   # Build PDF first (with personal contact info in .tex)
   echo "📝 Building resume PDF..."
-  RESUME_PUBLIC_EMAIL="peterson.guo@uwaterloo.ca" node scripts/buildResume.js
+  RESUME_PUBLIC_EMAIL="peterson.guo@uwaterloo.ca $|$" node scripts/buildResume.js
 
   # Then sanitize the .tex file for commit
   echo "📝 Sanitizing contact info in $RESUME_TEX..."
