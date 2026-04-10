@@ -6,7 +6,7 @@ const path = require('path');
 // Company logo mapping
 const companyLogos = {
 	'nvidia': 	'https://s3.amazonaws.com/cms.ipressroom.com/219/files/202512/692f50553d6332b453bbc5c2_nvidia-logo-vert-blk/nvidia-logo-vert-blk_thmb.png',
-	'baseten': 	'https://dzh2zima160vx.cloudfront.net/logo/aaa340387ade367703b1e49f53eb3028_304_160?Expires=1861920000&Signature=tzh4CAeWOS5gZNHx1zpz82~IV-F9F7k-e4SkQF9bDMWT0bBkeVNeUhMtjqwKYj7uipWvENmA0BVOw83Nie6hcYn5lg0gsaz7eKmCJKTncTmCmM1Rx-xk~1YeOOrYy5UFLoii-Pcv-cGIEetCnIhSrcGPVbzRuBLObFpiqHXDZoI5WAuzH73XcN56onips9670p7b4-YbNRtcCHBE4uDdk3IN~VfsMLm5uB2hs5N5OSC11bpkNfwbJ5RHffCEHkrXzG1Y0~5tSRRb1eADrgKJ3NT4WBhT3lxXMmu0SJYoPscfFitBo~eYrDn5hx6BiKROS7tbf4pyhR1PLVixPLxffA__&Key-Pair-Id=APKAII5OVX4LZ3WT422Q',
+	'baseten': 	'https://www.baseten.co/brand/svg/Baseten_Logotype-9.svg',
 	'amd': 		'https://upload.wikimedia.org/wikipedia/commons/6/6a/AMD_Logo.png',
 	'esentire': 'https://s3.ca-central-1.amazonaws.com/esentire-dot-com-assets/assets/eSentire_emblem_512x512.jpg',
 };
