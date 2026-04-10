@@ -42,7 +42,7 @@ const skillsByCategory = {
   ],
   "Frameworks": [
 	{
-      src: "https://mlir.llvm.org//mlir-logo.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/0/0e/MLIR_Logo.svg",
       alt: "MLIR",
       href: "https://mlir.llvm.org/",
     },
