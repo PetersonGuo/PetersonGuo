@@ -15,7 +15,7 @@ const skillsByCategory = {
       href: "https://en.cppreference.com/w/c",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1067px-ISO_C%2B%2B_Logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
       alt: "C++",
       href: "https://cplusplus.com/reference/",
     },
@@ -25,12 +25,7 @@ const skillsByCategory = {
       href: "https://www.python.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1067px-Logo_C_sharp.svg.png",
-      alt: "C#",
-      href: "https://docs.microsoft.com/en-us/dotnet/csharp/",
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/656px-Java_programming_language_logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
       alt: "Java",
       href: "https://www.java.com/",
     },
@@ -69,7 +64,7 @@ const skillsByCategory = {
   ],
   "Cloud & DevOps": [
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/640px-Amazon_Web_Services_Logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
       alt: "AWS",
       href: "https://aws.amazon.com/",
     },
@@ -106,7 +101,7 @@ const skillsByCategory = {
       href: "https://www.postgresql.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/1024px-Snowflake_Logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg",
       alt: "Snowflake",
       href: "https://www.snowflake.com/",
     },
@@ -128,7 +123,7 @@ const skillsByCategory = {
       href: "https://opencv.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/449px-Tensorflow_logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/a/ab/TensorFlow_logo.svg",
       alt: "TensorFlow",
       href: "https://www.tensorflow.org/",
     },

@@ -15,6 +15,7 @@ const nextConfig = {
       "dzh2zima160vx.cloudfront.net",
       "s3.amazonaws.com",
       "s3.ca-central-1.amazonaws.com",
+      "commons.wikimedia.org",
     ],
   },
 };
