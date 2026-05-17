@@ -35,7 +35,7 @@ const skillsByCategory = {
       href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
       alt: "TypeScript",
       href: "https://www.typescriptlang.org/",
     },
@@ -47,12 +47,12 @@ const skillsByCategory = {
       href: "https://mlir.llvm.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
       alt: "Node.js",
       href: "https://nodejs.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/FastAPI_logo.svg/1200px-FastAPI_logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
       alt: "FastAPI",
       href: "https://fastapi.tiangolo.com/",
     },
@@ -91,7 +91,7 @@ const skillsByCategory = {
       href: "https://firebase.google.com/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
       alt: "MongoDB",
       href: "https://www.mongodb.com/",
     },
@@ -113,7 +113,7 @@ const skillsByCategory = {
       href: "https://pytorch.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/330px-Tux.svg.png",
+      src: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Linux_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
       alt: "Linux",
       href: "https://www.linux.org/",
     },
