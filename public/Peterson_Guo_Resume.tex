@@ -87,7 +87,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.13in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]\vspace{-1pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]\vspace{-2pt}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
 
 %-------------------------------------------
@@ -144,37 +144,33 @@
       {Deep Learning Library Performance Software Engineer Intern}{05/2026 -- 09/2026}
       {Nvidia}{Santa Clara, CA}
       \resumeItemListStart
-        \resumeItem{Incoming}
+        \resumeItem{Returning}
       \resumeItemListEnd
     \resumeSubheading
       {Model Performance Engineer Intern}{01/2026 -- 5/2026}
       {Baseten}{San Francisco, CA}
       \resumeItemListStart
-        \resumeItem{Working on improving latency and throughput of ML models}
-       % \resumeItem{Interview problem setter}
-       %  \resumeItem{Optimized a transformer model's inference pipeline, delivering higher throughput and lower latency via batching, kernel fusion, and runtime scheduling on top of existing optimizations.}
-       %  \resumeItem{Built and owned a privacy-preserving LLM request hashing and replay system, enabling real-time traffic capture and deterministic workload re-simulation for performance testing and capacity planning.}
-       %  \resumeItem{Improved embeddings latency}
+        \resumeItem{Optimized OpenAI Whisper inference on H100, achieving \textbf{5x} throughput and \textbf{60\%} latency reduction via encoder batching, kernel fusion, and custom runtime scheduling on TRT-LLM}
+        \resumeItem{Re-architected LLM inference stack in TRT-LLM, implementing custom \textbf{CUDA} kernels using CUTLASS and CuTe DSL (TMA loads, WGMMA/UMMA, swizzling, ping-pong scheduling), plus KV-cache quantization (TurboQuant) and RadixMLP broadcast/collect kernels, improving memory efficiency and long-context decode performance}
+        \resumeItem{Re-architected speaker diarization pipeline, delivering \textbf{15x} throughput and \textbf{80\%} latency reduction through parallelization and model-level optimizations for a \textbf{\$5M} enterprise deployment}
+        \resumeItem{Built a privacy-preserving LLM request hashing + replay system for deterministic workload re-simulation, enabling performance regression testing and capacity planning; presented kernel/runtime optimizations to FDEs and led technical reviews}
       \resumeItemListEnd
     \resumeSubheading
       {Systems Software Engineer Intern}{05/2025 -- 12/2025}
-      {Nvidia}{Toronto, ON $\cdot$ Santa Clara, CA}
+      {Nvidia}{Toronto, ON}
       \resumeItemListStart
         \resumeItem{Built and owned an internal \textbf{Python–C++} profiler for CUTLASS latency decomposition with up to \textbf{21x} lower overhead than torch.profiler and adopted by \textbf{15+} systems developers}
         \resumeItem{Reduced end-to-end \textbf{JIT} compilation time by \textbf{20\%} by designing a deterministic Merkle-tree hashing system \textbf{5×} faster than SHA256 for multi-GB binaries, improving kernel generation \textbf{latency} and iteration speed}
         \resumeItem{Reduced kernel launch overhead by \textbf{60\%} by  eliminating \textbf{Python$\rightarrow$C++$\rightarrow$CUDA} dispatch hotspots, achieving performance within \textbf{10\%} of tvm-ffi and over \textbf{2x} faster than Triton}
-        \resumeItem{Core contributor of an \textbf{MLIR}-based \textbf{CUDA} dialect, adding \textbf{20+} ops and lowering patterns to enable \textbf{Python} DSL access to graphs, streams, async memops, and PDL}
-        \resumeItem{Migrated low latency \textbf{Blackwell}-optimized kernels to CuTe DSL, enabling dynamic JIT integration and cross-architecture kernel specialization}
-        \resumeItem{Delivered up to \textbf{2.67×} faster \textbf{LLM inference} at a pre-acquisition startup by integrating custom kernels and improving fusion heuristics of a \textbf{Python}-based \textbf{ML Graph}-compiler}
-      \resumeItemListEnd
+        \resumeItem{Core contributor to an \textbf{MLIR}-based CUDA dialect, designing and lowering \textbf{20+} ops to enable Python DSL access to graphs, streams, and async memory operations}
+    \resumeItemListEnd
     \resumeSubheading
       {Software Engineer Intern}{09/2024 -- 12/2024}
       {AMD}{Markham, ON}
       \resumeItemListStart
-          \resumeItem{Delivered AMD’s most stable GPU software release, by resolving \textbf{25+} kernel-level crashes, hangs, and performance regressions, using crash dumps, \textbf{firmware} logs, and \textbf{register-level} analysis}
+        \resumeItem{Delivered AMD’s most stable GPU software release, by resolving \textbf{25+} kernel-level crashes, hangs, and performance regressions, using crash dumps, \textbf{firmware} logs, and \textbf{register-level} analysis}
         \resumeItem{Shaped display-pipeline research, shown by my \textbf{ML upscaling} PoC being adopted and later expanded into an internal technical conference paper by my successor, by building a lightweight \textbf{PyTorch}/\textbf{ROCm} prototype}
         \resumeItem{Strengthened display-pipeline stability on next-gen AMD GPUs/APUs by building \textbf{C/C++ kernel} drivers, ensuring robust framebuffer$\rightarrow$display behavior for Ryzen AI and Radeon hardware}
-        \resumeItem{Improved bring-up reliability by fixing  \textbf{5+} Microsoft OS–GPU issues, analyzing \textbf{firmware}/memory dumps and eliminating early-boot bottlenecks}
         \resumeItem{Enhanced \textbf{Linux} display pipeline correctness, by resolving defects in color calibration, frame-sync logic, DSC decoding, and corruption, contributing patches to AMD’s \textbf{open-source} Linux display driver}
       \resumeItemListEnd
     \resumeSubheading
@@ -184,8 +180,7 @@
         \resumeItem{Performed \textbf{LLM security research} on production backends, analyzing attack surfaces including prompt injection, data exfiltration, and privilege escalation in deployed pipelines}
         \resumeItem{Cut \textbf{ingestion latency} by \textbf{50\%+} by \textbf{optimizing} JSON parsing and Snowflake execution paths, reducing pipeline stalls in \textbf{real-time analytics}}
         \resumeItem{Improved log-processing throughput by \textbf{4×} through \textbf{algorithmic optimizations} in \textbf{Python}’s data pipeline}
-        \resumeItem{Built an AI threat analytics dashboard end-to-end (Snowflake, Python, Vue3) used by enterprise clients to investigate live security events, earning executive visibility}
-        \resumeItem{Strengthened analyst workflows by adding packet-processing and correctness enhancements to an open-source PCAP scrubber}
+        \resumeItem{Built an AI threat analytics dashboard end-to-end (Snowflake, \textbf{Python}, Vue3) used by enterprise clients to investigate live security events, earning executive visibility}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
