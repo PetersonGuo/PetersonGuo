@@ -144,16 +144,17 @@
       {Deep Learning Library Performance Software Engineer Intern}{05/2026 -- 09/2026}
       {Nvidia}{Santa Clara, CA}
       \resumeItemListStart
-        \resumeItem{Returning}
+        \resumeItem{Contributed GPU runtime and kernel infrastructure across CUTLASS, FlashInfer, and vLLM, implementing mixed precision MoE with CuteDSL %that improved [latency, throughput, memory efficiency, or developer usability] by [metric]%
+        }
       \resumeItemListEnd
     \resumeSubheading
-      {Model Performance Engineer Intern}{01/2026 -- 5/2026}
+      {Model Performance Engineer Intern}{01/2026 -- 05/2026}
       {Baseten}{San Francisco, CA}
       \resumeItemListStart
         \resumeItem{Optimized OpenAI Whisper inference on H100, achieving \textbf{5x} throughput and \textbf{60\%} latency reduction via encoder batching, kernel fusion, and custom runtime scheduling on TRT-LLM}
-        \resumeItem{Re-architected LLM inference stack in TRT-LLM, implementing custom \textbf{CUDA} kernels using CUTLASS and CuTe DSL (TMA loads, WGMMA/UMMA, swizzling, ping-pong scheduling), plus KV-cache quantization (TurboQuant) and RadixMLP broadcast/collect kernels, improving memory efficiency and long-context decode performance}
-        \resumeItem{Re-architected speaker diarization pipeline, delivering \textbf{15x} throughput and \textbf{80\%} latency reduction through parallelization and model-level optimizations for a \textbf{\$5M} enterprise deployment}
-        \resumeItem{Built a privacy-preserving LLM request hashing + replay system for deterministic workload re-simulation, enabling performance regression testing and capacity planning; presented kernel/runtime optimizations to FDEs and led technical reviews}
+        \resumeItem{Implemented LLM inference optimizations in TRT-LLM, integrating custom \textbf{CUDA} kernels using CUTLASS and CuteDSL, TurboQuant KV-cache quantization and RadixMLP scatter/gather kernels, improving memory efficiency and long-context/batched decode performance; presented kernel/runtime optimizations to FDEs and led technical reviews}
+        \resumeItem{Re-architected speaker diarization pipeline, delivering \textbf{15x} throughput and \textbf{80\%} latency reduction through parallelization and model-level optimizations for a \textbf{multi-million} dollar enterprise deployment}
+        \resumeItem{Built a privacy-preserving LLM request hashing + replay system for deterministic workload re-simulation, enabling performance regression testing and capacity planning}
       \resumeItemListEnd
     \resumeSubheading
       {Systems Software Engineer Intern}{05/2025 -- 12/2025}
@@ -169,12 +170,12 @@
       {AMD}{Markham, ON}
       \resumeItemListStart
         \resumeItem{Delivered AMD’s most stable GPU software release, by resolving \textbf{25+} kernel-level crashes, hangs, and performance regressions, using crash dumps, \textbf{firmware} logs, and \textbf{register-level} analysis}
-        \resumeItem{Shaped display-pipeline research, shown by my \textbf{ML upscaling} PoC being adopted and later expanded into an internal technical conference paper by my successor, by building a lightweight \textbf{PyTorch}/\textbf{ROCm} prototype}
+        \resumeItem{Shaped display-pipeline research, shown by my \textbf{ML upscaling} PoC being adopted and later expanded into an internal technical conference paper by a successor, by prototyping a lightweight \textbf{PyTorch}/\textbf{ROCm} super sampling model}
         \resumeItem{Strengthened display-pipeline stability on next-gen AMD GPUs/APUs by building \textbf{C/C++ kernel} drivers, ensuring robust framebuffer$\rightarrow$display behavior for Ryzen AI and Radeon hardware}
-        \resumeItem{Enhanced \textbf{Linux} display pipeline correctness, by resolving defects in color calibration, frame-sync logic, DSC decoding, and corruption, contributing patches to AMD’s \textbf{open-source} Linux display driver}
+        \resumeItem{Contributed upstream fixes to AMD’s open-source \textbf{Linux} display driver, resolving defects in color calibration, frame synchronization, DSC decoding, and visual corruption}
       \resumeItemListEnd
     \resumeSubheading
-      {Security Developer Co-op}{01/2024 -- 5/2024}
+      {Security Developer Co-op}{01/2024 -- 05/2024}
       {eSentire}{Waterloo, ON}
       \resumeItemListStart
         \resumeItem{Performed \textbf{LLM security research} on production backends, analyzing attack surfaces including prompt injection, data exfiltration, and privilege escalation in deployed pipelines}
@@ -191,7 +192,7 @@
     \resumeSubHeadingListStart
         \resumeProjectHeading{\textbf{Chess Bot} $|$ PyTorch, Python, C++, CUDA, Alpha Beta Pruning, NNUE}{}
         \resumeItemListStart
-            \resumeItem{Built a \textbf{GPU-accelerated} chess engine using custom \textbf{CUDA} kernels for evaluation/search, achieving major speedups over CPU baselines}
+            \resumeItem{Built a \textbf{GPU-accelerated} chess engine using custom \textbf{CUDA} kernels for evaluation/search}
         \resumeItemListEnd
 
         % \resumeProjectHeading
@@ -202,12 +203,7 @@
 
         \resumeProjectHeading{\textbf{InvestIQ} $|$ Python, C++, IBKR API, CUDA}{}
         \resumeItemListStart
-            \resumeItem{Built a low-latency, event driven market data pipeline aggregating price, event, and sentiment feeds, enabling deterministic backtesting and feature generation for pairs trading and signal research.}
-        \resumeItemListEnd
-
-        \resumeProjectHeading{\textbf{ML Upscaling} $|$ ROCm, CUDA, Machine Learning, CNNs, PyTorch, Python}{}
-        \resumeItemListStart
-            \resumeItem{Prototyped a real-time \textbf{ML} upscaling model for \textbf{AMD graphics cards}, leveraging \textbf{transformer} based \textbf{super sampling} to enhance visual fidelity and performance for potential display pipeline adoption}
+            \resumeItem{Built a low-latency, event driven market data pipeline aggregating price, event, and sentiment feeds, for backtesting and feature generation with pairs trading and signal research}
         \resumeItemListEnd
 
     \resumeSubHeadingListEnd
