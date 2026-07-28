@@ -1,19 +1,24 @@
 button#send__button {
 	font-family: inherit;
-	font-size: 20px;
+	font-size: 15px;
+	line-height: 1;
 	background: royalblue;
 	color: white;
-	max-width: 10em;
-	min-width: 7em;
-	padding: 0.7em 0;
+	min-width: 8.5em;
+	padding: 0.75em 1.4em;
 	justify-content: center;
 	display: flex;
 	align-items: center;
 	border: none;
-	border-radius: 16px;
+	border-radius: 999px;
 	overflow: hidden;
 	transition: all 0.2s;
 	cursor: pointer;
+}
+
+button#send__button svg {
+	width: 18px;
+	height: 18px;
 }
 
 button#send__button span {
@@ -42,6 +47,21 @@ button#send__button:hover span {
 
 button#send__button:active {
 	transform: scale(0.95);
+}
+
+/* Hold the plane still while a send is in flight. */
+button#send__button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+button#send__button:disabled:hover .svg-wrapper {
+	animation: none;
+}
+
+button#send__button:disabled:hover svg,
+button#send__button:disabled:hover span {
+	transform: none;
 }
 
 @keyframes fly-1 {

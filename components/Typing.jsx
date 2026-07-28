@@ -5,10 +5,15 @@ class Typing extends React.Component {
 	componentDidMount() {
 		const options = {
 			strings: [
-				"I am an Electrical Engineer",
+				"I am a Systems Software Engineer",
+				"I am a Performance Software Engineer",
+				"I am a Compiler Engineer",
 			],
 			typeSpeed: 50,
-			backSpeed: 50,
+			backSpeed: 30,
+			backDelay: 1800,
+			// Only rewind as far as the shared "I am a " prefix.
+			smartBackspace: true,
 			loop: true,
 			cursorChar: "|",
 		};

@@ -25,7 +25,15 @@ export default function TesseractViewer() {
 			0.1,
 			1000
 		);
-		const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
+		// antialias smooths the wireframe edges; setPixelRatio matches the
+		// drawing buffer to the display's DPI. Without it the canvas renders at
+		// 1x and is upscaled on HiDPI screens, which looks grainy.
+		const renderer = new THREE.WebGLRenderer({
+			canvas: canvasRef.current,
+			antialias: true,
+			alpha: true,
+		});
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
 		const material = new THREE.LineBasicMaterial({ color: "#bfbfbf" });
@@ -172,6 +180,15 @@ export default function TesseractViewer() {
 			window.removeEventListener('touchend', handleFirstTouch);
 		}
 
+		// Without this the buffer keeps its initial size and the scene stretches.
+		const handleResize = () => {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		};
+		window.addEventListener("resize", handleResize);
+
 		if (isMobile()) {
 			window.addEventListener('touchend', handleFirstTouch);
 		} else {
@@ -182,9 +199,11 @@ export default function TesseractViewer() {
 		return () => {
 			renderer.setAnimationLoop(null);
 			renderer.dispose();
+			window.removeEventListener("resize", handleResize);
 			window.removeEventListener("wheel", handleWheel);
 			window.removeEventListener('touchend', handleFirstTouch);
-			window.removeEventListener('deviceorientation', handleMouseMove);
+			// Was removing handleMouseMove here, so the gyro listener leaked.
+			window.removeEventListener('deviceorientation', handleOrientation);
 			window.removeEventListener("mousemove", handleMouseMove);
 		};
 	}, []);
