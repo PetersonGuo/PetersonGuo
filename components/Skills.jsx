@@ -7,131 +7,166 @@ import { useState, useEffect } from "react";
 
 import "@/css/Skills.css";
 
+// Drawn from the resume's skills section (C/C++, Python, MLIR, Bash, LLVM,
+// CUDA, ROCm, PyTorch, Git, Linux) plus the stacks used across the projects in
+// ProjectData.
+//
+// Logos are served from public/logos/skills rather than hotlinked: Wikimedia
+// rate-limits hotlinked requests (429), which made logos fail intermittently.
+// Run `npm run fetch-logos` to (re)download them.
 const skillsByCategory = {
-  "Programming Languages": [
+  "Languages": [
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
+      src: "/logos/skills/c.png",
       alt: "C",
       href: "https://en.cppreference.com/w/c",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
+      src: "/logos/skills/cpp.svg",
       alt: "C++",
       href: "https://cplusplus.com/reference/",
     },
     {
-      src: "https://1000logos.net/wp-content/uploads/2020/08/Python-Logo.png",
+      src: "/logos/skills/python.png",
       alt: "Python",
       href: "https://www.python.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
+      src: "/logos/skills/bash.svg",
+      alt: "Bash",
+      href: "https://www.gnu.org/software/bash/",
+    },
+    {
+      src: "/logos/skills/java.svg",
       alt: "Java",
       href: "https://www.java.com/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      alt: "JavaScript",
-      href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      src: "/logos/skills/typescript.svg",
       alt: "TypeScript",
       href: "https://www.typescriptlang.org/",
     },
+    {
+      src: "/logos/skills/javascript.png",
+      alt: "JavaScript",
+      href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
   ],
-  "Frameworks": [
-	{
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/0e/MLIR_Logo.svg",
+  "GPU & Compilers": [
+    {
+      src: "/logos/skills/cuda.jpg",
+      alt: "CUDA",
+      href: "https://developer.nvidia.com/cuda-toolkit",
+    },
+    {
+      src: "/logos/skills/rocm.png",
+      alt: "ROCm",
+      href: "https://rocm.docs.amd.com/",
+    },
+    {
+      src: "/logos/skills/llvm.png",
+      alt: "LLVM",
+      href: "https://llvm.org/",
+    },
+    {
+      src: "/logos/skills/mlir.svg",
       alt: "MLIR",
       href: "https://mlir.llvm.org/",
     },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      alt: "Node.js",
-      href: "https://nodejs.org/",
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      alt: "FastAPI",
-      href: "https://fastapi.tiangolo.com/",
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg",
-      alt: "Flask",
-      href: "https://flask.palletsprojects.com/en/3.0.x/",
-    },
   ],
-  "Cloud & DevOps": [
+  "ML & AI": [
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-      alt: "AWS",
-      href: "https://aws.amazon.com/",
-    },
-    {
-      src: "https://www.docker.com/app/uploads/2023/08/logo-guide-logos-1.svg",
-      alt: "Docker",
-      href: "https://www.docker.com/",
-    },
-    {
-      src: "https://logos-world.net/wp-content/uploads/2021/02/Google-Cloud-Logo.png",
-      alt: "Google Cloud",
-      href: "https://cloud.google.com/",
-    },
-    {
-      src: "https://www.svgrepo.com/show/354444/terraform.svg",
-      alt: "Terraform",
-      href: "https://www.terraform.io/",
-    },
-  ],
-  "Databases & Storage": [
-    {
-      src: "https://firebase.google.com/static/images/brand-guidelines/logo-vertical.png",
-      alt: "Firebase",
-      href: "https://firebase.google.com/",
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      alt: "MongoDB",
-      href: "https://www.mongodb.com/",
-    },
-    {
-      src: "https://1000logos.net/wp-content/uploads/2020/08/PostgreSQL-Logo.png",
-      alt: "PostgreSQL",
-      href: "https://www.postgresql.org/",
-    },
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg",
-      alt: "Snowflake",
-      href: "https://www.snowflake.com/",
-    },
-  ],
-  "Other Technologies": [
-    {
-      src: "https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png",
+      src: "/logos/skills/pytorch.png",
       alt: "PyTorch",
       href: "https://pytorch.org/",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Linux_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      alt: "Linux",
-      href: "https://www.linux.org/",
+      src: "/logos/skills/tensorflow.svg",
+      alt: "TensorFlow",
+      href: "https://www.tensorflow.org/",
     },
     {
-      src: "https://github.com/opencv/opencv/wiki/logo/OpenCV_logo_black.png",
+      src: "/logos/skills/opencv.png",
       alt: "OpenCV",
       href: "https://opencv.org/",
     },
+  ],
+  "Web & Backend": [
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/a/ab/TensorFlow_logo.svg",
-      alt: "TensorFlow",
-      href: "https://www.tensorflow.org/",
+      src: "/logos/skills/react.svg",
+      alt: "React",
+      href: "https://react.dev/",
+    },
+    {
+      src: "/logos/skills/nextjs.svg",
+      alt: "Next.js",
+      href: "https://nextjs.org/",
+    },
+    {
+      src: "/logos/skills/nodejs.svg",
+      alt: "Node.js",
+      href: "https://nodejs.org/",
+    },
+    {
+      src: "/logos/skills/fastapi.svg",
+      alt: "FastAPI",
+      href: "https://fastapi.tiangolo.com/",
+    },
+    {
+      src: "/logos/skills/flask.svg",
+      alt: "Flask",
+      href: "https://flask.palletsprojects.com/",
+    },
+    {
+      src: "/logos/skills/selenium.png",
+      alt: "Selenium",
+      href: "https://www.selenium.dev/",
+    },
+  ],
+  "Systems & Data": [
+    {
+      src: "/logos/skills/linux.jpg",
+      alt: "Linux",
+      href: "https://www.kernel.org/",
+    },
+    {
+      src: "/logos/skills/git.svg",
+      alt: "Git",
+      href: "https://git-scm.com/",
+    },
+    {
+      src: "/logos/skills/docker.svg",
+      alt: "Docker",
+      href: "https://www.docker.com/",
+    },
+    {
+      src: "/logos/skills/arduino.svg",
+      alt: "Arduino",
+      href: "https://www.arduino.cc/",
+    },
+    {
+      src: "/logos/skills/postgresql.png",
+      alt: "PostgreSQL",
+      href: "https://www.postgresql.org/",
+    },
+    {
+      src: "/logos/skills/mongodb.svg",
+      alt: "MongoDB",
+      href: "https://www.mongodb.com/",
+    },
+    {
+      src: "/logos/skills/firebase.png",
+      alt: "Firebase",
+      href: "https://firebase.google.com/",
     },
   ],
 };
 
+const CATEGORIES = Object.keys(skillsByCategory);
+
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState("Programming Languages");
+  // Derived from the data so renaming a category cannot leave this dangling.
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
 
   const [activeTab, setActiveTab] = useState(null);
 
@@ -167,8 +202,7 @@ export default function Skills() {
   }, [activeCategory]);
 
   return (
-    <div className="w-[70vw]">
-      <h1>Skills & Tools</h1>
+    <div className="w-full">
       <div className="tabs justify-center">
         {Object.keys(skillsByCategory).map((category) => (
           <button
@@ -213,8 +247,6 @@ export default function Skills() {
                       height={80}
                       style={{ objectFit: "contain" }}
                       priority={loadPriority[i]}
-                      placeholder="blur"
-                      blurDataURL={`/logos/skills/${skill.src}`}
                       className="transition-opacity duration-200 ease-in-out w-[80%] h-[80%]"
                     />
                   </div>

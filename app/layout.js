@@ -1,3 +1,4 @@
+import HashScroll from "@/components/HashScroll";
 import MouseGradient from "@/components/MouseGradient";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         <html lang="en" style={{ scrollBehavior: 'smooth' }}>
             <body className={inter.className}>
                 <MouseGradient />
+                <HashScroll />
                 {children}
             </body>
         </html>

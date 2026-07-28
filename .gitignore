@@ -38,3 +38,6 @@ next-env.d.ts
 .env
 
 data
+
+# DoppioJVM runtime + Java class library (~98MB), fetched by scripts/setupDoppio.js
+/public/doppio

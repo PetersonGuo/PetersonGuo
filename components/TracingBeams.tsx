@@ -25,42 +25,25 @@ export const TracingBeam = ({
 	// track velocity of scroll to increase or decrease distance between svg gradient y coordinates.
 	const scrollYProgressVelocity = useVelocity(scrollYProgress);
 	const [velo, setVelocity] = useState(0);
-	const [windowWidth, setWindowWidth] = useState(0);
 
 	const contentRef = useRef<HTMLDivElement>(null);
 
 	const [svgHeight, setSvgHeight] = useState(0);
 
+	// A MutationObserver on childList only fires when a node is added, which for
+	// an animated disclosure is while it is still collapsed to height 0 -- the
+	// beam then kept a stale height. ResizeObserver tracks the content through
+	// the whole animation.
 	useEffect(() => {
-		window.addEventListener("resize", () => {
-			setWindowWidth(window.innerWidth);
-		});
-		return () => {
-			window.removeEventListener("resize", () => {
-				setWindowWidth(window.innerWidth);
-			});
-		};
-	}, []);
+		const el = contentRef.current;
+		if (!el) return;
 
-	useEffect(() => {
-		const updateHeight = () => {
-			if (contentRef.current) {
-				setSvgHeight(contentRef.current.scrollHeight);
-			}
-		};
-		updateHeight();
+		const update = () => setSvgHeight(el.scrollHeight);
+		update();
 
-		const observer = new MutationObserver(updateHeight);
-		if (contentRef.current) {
-			observer.observe(contentRef.current, {
-				childList: true,
-				subtree: true,
-			});
-		}
-
-		return () => {
-			observer.disconnect();
-		};
+		const observer = new ResizeObserver(update);
+		observer.observe(el);
+		return () => observer.disconnect();
 	}, []);
 
 	useEffect(() => {
@@ -89,10 +72,12 @@ export const TracingBeam = ({
 	);
 
 	return (
+		// No fixed height: the wrapper must grow with its content, otherwise an
+		// expanded card overflows it and overlaps the following section.
+		// svgHeight is still tracked, but only to size the beam itself.
 		<motion.div
 			ref={ref}
 			className={cn(`relative w-full max-w-4xl mx-auto`, className)}
-			style={{ height: `${svgHeight}px` }}
 		>
 			<div className="absolute -left-20 top-3">
 				<motion.div

@@ -1,3 +1,11 @@
-.home section {
-	margin: 2vh 0;
+/* Section spacing and centring are handled with utility classes on each
+   section. Do not add a `.home section { margin: ... }` rule here: its
+   specificity (0,1,1) beats Tailwind's `.mx-auto` (0,1,0) and silently
+   un-centres every section. */
+
+/* The nav is fixed, so anchor targets would otherwise land underneath it. */
+#about,
+#projects,
+#contact {
+	scroll-margin-top: 7rem;
 }
