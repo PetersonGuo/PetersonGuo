@@ -115,7 +115,7 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {University of Waterloo}{Waterloo, ON}
-      {BMath in Honours Mathematics}{09/2023 - 04/2028}
+      {BASc. in Honours Electrical Engineering}{09/2023 - 04/2028}
   \resumeSubHeadingListEnd
 
 %-------------------------------------------
@@ -129,10 +129,10 @@
         \textbf{Languages}{: C/C++, Python, MLIR, Bash}
      }}
     \item{\small{
-        \textbf{Software}{: LLVM, CUDA, ROCm, Pytorch, Git}
+        \textbf{Software}{: LLVM, CUDA, CuteDSL, Pytorch, Git}
     }}
     \item{\small{
-        \textbf{Others}{: Compilers, GPU Drivers, Linux, Operating Systems, Kernel Debugging, LLMs}
+        \textbf{Others}{: GPU Kernels, Compilers, GPU Drivers, Linux, Kernel Debugging, LLMs}
     }}
  \end{itemize}
 
@@ -144,8 +144,9 @@
       {Deep Learning Library Performance Software Engineer Intern}{05/2026 -- 09/2026}
       {Nvidia}{Santa Clara, CA}
       \resumeItemListStart
-        \resumeItem{Contributed GPU runtime and kernel infrastructure across CUTLASS, FlashInfer, and vLLM, implementing mixed precision MoE with CuteDSL %that improved [latency, throughput, memory efficiency, or developer usability] by [metric]%
-        }
+        \resumeItem{Optimized mixed-precision MoE kernels in CuteDSL with Swap A/B, Split-K, 2CTA, scheduling, HBM prefetch, and PDL, improving low-latency inference by up to 46\% vs. production baseline}
+        \resumeItem{Added MXFP4 $\times$ MXFP8 support to grouped and block-scaled GEMMs, enabling mixed-precision MoE execution across CUTLASS, FlashInfer, and vLLM}
+        \resumeItem{Improved Blackwell TGV GEMMs by fixing BF16 Split-K and NVFP4 TMA scale-factor loads, fusing bias, and tuning PDL launch counts for low-latency decode workloads}
       \resumeItemListEnd
     \resumeSubheading
       {Model Performance Engineer Intern}{01/2026 -- 05/2026}
@@ -181,7 +182,7 @@
         \resumeItem{Performed \textbf{LLM security research} on production backends, analyzing attack surfaces including prompt injection, data exfiltration, and privilege escalation in deployed pipelines}
         \resumeItem{Cut \textbf{ingestion latency} by \textbf{50\%+} by \textbf{optimizing} JSON parsing and Snowflake execution paths, reducing pipeline stalls in \textbf{real-time analytics}}
         \resumeItem{Improved log-processing throughput by \textbf{4×} through \textbf{algorithmic optimizations} in \textbf{Python}’s data pipeline}
-        \resumeItem{Built an AI threat analytics dashboard end-to-end (Snowflake, \textbf{Python}, Vue3) used by enterprise clients to investigate live security events, earning executive visibility}
+        %\resumeItem{Built an AI threat analytics dashboard end-to-end (Snowflake, \textbf{Python}, Vue3) used by enterprise clients to investigate live security events, earning executive visibility}%
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
