@@ -115,12 +115,11 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {University of Waterloo}{Waterloo, ON}
-      {BASc. in Honours Electrical Engineering}{09/2023 - 04/2028}
+      {BMath. in Honours Math}{09/2023 - 04/2028}
   \resumeSubHeadingListEnd
 
-%-------------------------------------------
-
 %-----------PROGRAMMING SKILLS-----------
+
 \vspace{-5pt}
 \section{Skills}
  \begin{itemize}[leftmargin=0.08in, label={}]
@@ -144,9 +143,10 @@
       {Deep Learning Library Performance Software Engineer Intern}{05/2026 -- 09/2026}
       {Nvidia}{Santa Clara, CA}
       \resumeItemListStart
-        \resumeItem{Optimized mixed-precision MoE kernels in CuteDSL with Swap A/B, Split-K, 2CTA, scheduling, HBM prefetch, and PDL, improving low-latency inference by up to 46\% vs. production baseline}
-        \resumeItem{Added MXFP4 $\times$ MXFP8 support to grouped and block-scaled GEMMs, enabling mixed-precision MoE execution across CUTLASS, FlashInfer, and vLLM}
-        \resumeItem{Improved Blackwell TGV GEMMs by fixing BF16 Split-K and NVFP4 TMA scale-factor loads, fusing bias, and tuning PDL launch counts for low-latency decode workloads}
+        \resumeItem{Optimized \textbf{CuteDSL} mixed-precision MoE kernels with swapAB, Split-K, 2CTA, HBM prefetch, and PDL, improving low-latency inference by up to \textbf{88\%} vs. production baseline; Integrated kernels into \textbf{vLLM} and \textbf{FlashInfer}}
+        \resumeItem{Added mixed MXFP4 and MXFP8 support to grouped and block-scaled GEMMs, enabling mixed-precision quantization configurations for LLM deployments}
+        \resumeItem{Productionized low-latency GEMMs by resolving BF16 OOB TMEM accesses and mixed-MX TMA scale-factor load correctness issues; added Split-K, fused bias, fused alpha, and tunable PDL launch counts for decode workloads}
+        \resumeItem{Built a single-node LLM execution simulator for multi-node deployments, used by \textbf{5+} engineers to validate end-to-end speedups and to investigate serving optimizations on Blackwell for low-latency decode}
       \resumeItemListEnd
     \resumeSubheading
       {Model Performance Engineer Intern}{01/2026 -- 05/2026}
@@ -154,7 +154,7 @@
       \resumeItemListStart
         \resumeItem{Optimized OpenAI Whisper inference on H100, achieving \textbf{5x} throughput and \textbf{60\%} latency reduction via encoder batching, kernel fusion, and custom runtime scheduling on TRT-LLM}
         \resumeItem{Implemented LLM inference optimizations in TRT-LLM, integrating custom \textbf{CUDA} kernels using CUTLASS and CuteDSL, TurboQuant KV-cache quantization and RadixMLP scatter/gather kernels, improving memory efficiency and long-context/batched decode performance; presented kernel/runtime optimizations to FDEs and led technical reviews}
-        \resumeItem{Re-architected speaker diarization pipeline, delivering \textbf{15x} throughput and \textbf{80\%} latency reduction through parallelization and model-level optimizations for a \textbf{multi-million} dollar enterprise deployment}
+        \resumeItem{Re-architected speaker diarization pipeline, delivering \textbf{15x} peak throughput and \textbf{80\%} latency reduction through parallelization and model-level optimizations for a \textbf{multi-million} dollar enterprise deployment}
         \resumeItem{Built a privacy-preserving LLM request hashing + replay system for deterministic workload re-simulation, enabling performance regression testing and capacity planning}
       \resumeItemListEnd
     \resumeSubheading
@@ -204,9 +204,10 @@
 
         \resumeProjectHeading{\textbf{InvestIQ} $|$ Python, C++, IBKR API, CUDA}{}
         \resumeItemListStart
-            \resumeItem{Built a low-latency, event driven market data pipeline aggregating price, event, and sentiment feeds, for backtesting and feature generation with pairs trading and signal research}
+            \resumeItem{Built a low-latency market data pipeline for backtesting and feature generation with numerous trading algorithms}
         \resumeItemListEnd
 
     \resumeSubHeadingListEnd
 
 \end{document}
+
